@@ -1,0 +1,583 @@
+﻿@model AdminCylsys.Models.PostUser
+@{
+    ViewBag.Title = "GetPostById";
+}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<style>
+    span {
+        float: right;
+    }
+</style>
+<main id="main" class="main">
+    <section class="section">
+        <h5>Post & Jobs</h5>
+        <hr>
+        <div class="row mt-4">
+            <div class="col-md-4 mb-3 form-outline" style="display:none">
+                <input type="text" class="form-input" placeholder=" " id="postId" value="@Model.id" required>
+                <label for="" class="form-label" id="l1">Id</label>
+            </div>
+            <div class="col-md-4 mb-3 form-outline">
+                <input type="text" class="form-input" placeholder=" " id="position" value="@Model.position" required oninput="validateAlphabet()">
+                <label for="" class="form-label" id="l1">Position <span class="text-danger">*</span></label>
+                <span id="positionError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="ddlcontry" class="form-select" onchange="get_state(this.value)">
+                    @foreach (var item in ViewBag.country)
+                    {
+                        <option value="@item.Value" @(item.Value == Model.country_id ? "selected ='selected' " : "" )>
+                            @item.Text
+                        </option>
+                    }
+                </select>
+                <label class="lablenew">Country <span class="text-danger">*</span></label>
+                <span id="CountryError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="category" class="form-select" onchange="get_city(this.value)">
+                    @foreach (var item in ViewBag.state)
+                    {
+                        <option value="@item.Value" @(item.Value == Model.state_id ? "selected ='selected' " : "" )>
+                            @item.Text
+                        </option>
+                    }
+                </select>
+                <label class="lablenew">State <span class="text-danger">*</span></label>
+                <span id="StateError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="categorycity" class="form-select">
+                    @foreach (var item in ViewBag.city)
+                    {
+                        <option value="@item.Value" @(item.Value == Model.city_id ? "selected ='selected' " : "" )>
+                            @item.Text
+                        </option>
+                    }
+                </select>
+                <label class="lablenew">City <span class="text-danger">*</span></label>
+                <span id="CityError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+              
+
+                <select id="experience" class="form-select">
+                    @foreach (var item in ViewBag.exp)
+                    {
+                        <option value="@item.Value" @(item.Value == Model.expid ? "selected ='selected' " : "" )>
+                            @item.Text
+                        </option>
+                    }
+
+                </select>
+                <label class="lablenew">Experience <span class="text-danger">*</span></label>
+                <span id="ExperienceError" class="text-danger"></span>
+            </div>           
+            <div class="col-md-4 mb-3 form-outline">
+                <input type="text" class="form-input" placeholder=" Joining period" id="joining_Period"
+                       value="@Model.joining_period" required>
+                <label for="" class="form-label" id="l1">Joining period <span class="text-danger">*</span></label>
+                <span id="JoiningPeriodError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <input type="number" class="form-input" placeholder="Number of Position " id="numberOfPosition" oninput="validateNumberInput(this)"
+                       value="@Model.number_of_position" required>
+                <label class="lablenew" style="top:-59px;left:6px;">Number of position <span class="text-danger">*</span></label>
+                <span id="NoOfPositionError" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="ddlpay" class="form-select">
+                    @foreach (var item 
+                        in ViewBag.pay)
+                    {
+                        <option value="@item.Value" @(item.Value == Model.pay_id ? "selected ='selected' " : "" )>
+                            @item.Text
+                        </option>
+                    }
+
+                </select>
+
+                <label class="lablenew">Payroll <span class="text-danger">*</span></label>
+
+                <span id="PayrollError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-4 mb-3 form-outline">
+
+                <input type="date" class="form-input" placeholder="Valid Till " id="validTillDate"
+                       value="@Model.valid_till.ToString("yyyy-MM-dd")" required>
+
+                <label for="" class="form-label" id="l1">Valid Till <span class="text-danger">*</span></label>
+
+                <span id="ValidTillError" class="text-danger"></span>
+
+            </div>
+
+            <div>
+
+                <hr />
+
+            </div>
+
+            <h5>Point of contact (POC)</h5>
+
+            <br />
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder="Email " id="mail_Id" value="@Model.mail_Id"
+                           required>
+
+                    <label for="" class="form-label" id="l1">Mail Id <span class="text-danger">*</span></label>
+
+                    <span id="EmailError" class="text-danger"></span>
+
+                </div>
+
+                <div class="col-md-4 mb-3 form-outline">
+
+                    <input type="number" class="form-input" placeholder="Phone Number " id="PhoneNo"
+                           value="@Model.phone_number" required>
+
+                    <label for="" class="form-label" id="l1">Phone Number  <span class="text-danger">*</span></label>
+
+                    <span id="PhoneNoError" class="text-danger"></span>
+
+                </div>
+
+                <div class="col-md-4 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" Budget" id="Budget" value="@Model.budget"
+                           required>
+
+                    *<label for="" class="form-label" id="l1">Maximum Budget(Monthly)  <span class="text-danger">*</span></label>
+
+                    <span id="BudgetError" class="text-danger"></span>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    @*<textarea class="form-input" rows="4" id="Discription" value="@Model.description"
+        required> </textarea>*@
+
+                    @*<input type="textarea" class="form-input" rows="4" id="Discription" value="@Model.description"
+                           required> </input="tex">*@
+                    <textarea class="form-input" placeholder=" " name="description"
+                              id="Discription" required>@Model.description</textarea>
+
+                    <label for="" class="form-label" id="l1">Description <span class="text-danger">*</span></label>
+
+                    <span id="DiscriptionError" class="text-danger"></span>
+
+                </div>
+
+                
+
+                <div class="col-md-5">
+                    <br />
+                    <button class="btn btn-primary btn-blue mb-3" id="update">Update</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Table code end-->
+
+    </section>
+
+</main>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#update').click(function () {
+
+            if (validateInput()) {
+
+                let obj =
+
+                {
+
+                    id: $('#postId').val(),
+
+                    position: $('#position').val(),
+
+                    country_name: $('#ddlcontry').val(),
+
+                    state_name: $('#category').val(),
+
+                    city_name: $('#categorycity').val(),
+
+                    experience: $('#experience').val(),
+
+                    joining_period: $('#joining_Period').val(),
+
+                    mail_Id: $('#mail_Id').val(),
+
+                    number_of_position: $('#numberOfPosition').val(),
+
+                    Payroll: $('#ddlpay').val(),
+
+                    valid_till: $('#validTillDate').val(),
+
+                    phone_number: $('#PhoneNo').val(),
+
+                    budget: $('#Budget').val(),
+
+                    description: $('#Discription').val(),
+
+                };
+
+                $.ajax({
+
+                    url: "/PostAndJobs/UpdatePost",
+
+                    type: "POST",
+
+                    data: obj,
+
+                    success: function (data) {
+
+                        if (data && data.status) {
+
+                            console.log(data);
+
+                            alert("Data updated successfully!");
+
+                            //location.reload();
+
+                            window.location.href = "/PostAndJobs/PostAndJobs";
+
+                        } else {
+
+                            alert("Error occurred while updating data.");
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        alert("Error occurred while updating data.");
+
+                        console.error(err.responseText);
+
+                    },
+
+                });
+
+            } else {
+
+                displayValidationMessages();
+
+            }
+
+        });
+
+    });
+
+    function displayValidationMessages() {
+
+        validateField("position", "Position is required.", "positionError");
+
+        validateField("ddlcontry", "Country is required.", "CountryError");
+
+        validateField("category", "State is required.", "StateError");
+
+        validateField("categorycity", "City is required.", "CityError");
+
+        validateField("experience", "Experience is required.", "ExperienceError");
+
+        validateField("joining_Period", "Joining Period is required.", "JoiningPeriodError");
+
+        validateField("mail_Id", "Email address. is required.", "EmailError");
+
+        validateEmail("mail_Id", "Invalid email address.", "EmailError");
+
+        validateField("numberOfPosition", "Number of Position is required.", "NoOfPositionError");
+
+        validateField("ddlpay", "Payroll is required.", "PayrollError");
+
+        validateField("validTillDate", "Valid field is required.", "ValidTillError");
+
+        validateField("PhoneNo", "Phone Number is required.", "PhoneNoError");
+
+     //   validatePhoneNumber("PhoneNo", "Phone Number should be 10 digits.", "PhoneNoError");
+
+        validateField("Budget", "Budget is required.", "BudgetError");
+
+        validateField("Discription", "Description is required.", "DiscriptionError");
+
+    }
+
+    function validateInput() {
+
+        return (
+
+            validateField("position", null, "positionError") &&
+
+            validateField("ddlcontry", null, "CountryError") &&
+
+            validateField("category", null, "StateError") &&
+
+            validateField("categorycity", null, "CityError") &&
+
+            validateField("experience", null, "ExperienceError") &&
+
+            validateField("joining_Period", null, "JoiningPeriodError") &&
+
+            validateEmail("mail_Id", "Invalid email address.", "EmailError") &&
+
+            validateField("numberOfPosition", null, "NoOfPositionError") &&
+
+            validateField("numberOfPosition", null, "NoOfPositionError") &&
+
+            validateField("ddlpay", null, "PayrollError") &&
+
+            validateField("validTillDate", null, "ValidTillError") &&
+
+            validateField("PhoneNo", null, "PhoneNoError") &&
+
+          //  validatePhoneNumber("PhoneNo", "Phone Number should be 10 digits.", "PhoneNoError") &&
+
+            validateField("Budget", null, "BudgetError") &&
+
+            validateField("Discription", null, "DiscriptionError")
+
+        );
+
+    }
+
+    function validateField(fieldId, errorMessage = null, errorSpanId = null) {
+
+        const fieldValue = $(`#${fieldId}`).val();
+
+        if (!fieldValue) {
+
+            $(`#${errorSpanId}`).text(errorMessage || `${fieldId.charAt(0).toUpperCase() + fieldId.slice(1)} is required.`);
+
+            return false;
+
+        } else {
+
+            $(`#${errorSpanId}`).text("");
+
+            return true;
+
+        }
+
+    }
+
+    function validatePhoneNumber(fieldId, errorMessage = null, errorSpanId = null) {
+
+        const fieldValue = $(`#${fieldId}`).val();
+
+        // Check if the phone number is exactly 10 digits
+
+        if (fieldValue && fieldValue.length !== 10) {
+
+            $(`#${errorSpanId}`).text(errorMessage || "Phone Number should be 10 digits.");
+
+            return false;
+
+        } else {
+
+            $(`#${errorSpanId}`).text("");
+
+            return true;
+
+        }
+
+    }
+
+    function get_state(id) {
+
+        console.log(id)
+
+        debugger;
+
+        $.ajax({
+
+            url: "/PostAndJobs/statefilter?id=" + id,
+
+            type: "POST",
+
+            success: function (data) {
+
+                console.log("data ", data);
+
+                var categ = $("#category").html("");
+
+                categ.append('<option value=""> Select </option>')
+
+                if (data != null && data != undefined) {
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        categ.append("<option value='" + data[i].id + "'>" + data[i].state_name + "</option>");
+
+                    }
+
+                }
+
+            },
+
+            error: function (err) {
+
+                console.error(err.message);
+
+                return;
+
+            },
+
+        });
+
+    }
+
+    function get_city(id) {
+
+        console.log(id)
+
+        //debugger;
+
+        $.ajax({
+
+            url: "/PostAndJobs/cityfilter?id=" + id,
+
+            type: "POST",
+
+            success: function (data) {
+
+                console.log("data ", data);
+
+                var categ = $("#categorycity").html("");
+
+                categ.append('<option value=""> Select </option>')
+
+                if (data != null && data != undefined) {
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        categ.append("<option value='" + data[i].city_id + "'>" + data[i].city_name + "</option>");
+
+                    }
+
+                }
+
+            },
+
+            error: function (err) {
+
+                console.error(err.message);
+
+                return;
+
+            },
+
+        });
+
+    }
+
+    function validateEmail(fieldId, errorMessage = null, errorSpanId = null) {
+
+        const emailRegex = new RegExp('^[a-zA-Z0-9+_.-]+@@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,3}$');
+
+        const fieldValue = $(`#${fieldId}`).val();
+
+        if (!fieldValue || !emailRegex.test(fieldValue)) {
+
+            $(`#${errorSpanId}`).text(errorMessage || "Invalid email address.");
+
+            return false;
+
+        } else {
+
+            $(`#${errorSpanId}`).text("");
+
+            return true;
+
+        }
+
+    }
+    function validateNumberInput(input) {
+
+        // Remove non-numeric characters and decimal points
+
+        input.value = input.value.replace(/[^0-9]/g, '');
+
+        // You can also display an error message if needed
+
+        var errorSpan = document.getElementById('NoOfPositionError');
+
+        if (input.validity.badInput) {
+
+            errorSpan.textContent = 'Please enter a valid number.';
+
+        } else {
+
+            errorSpan.textContent = '';
+
+        }
+
+    }
+
+    //function validateAlphabet() {
+
+    //    var inputElement = document.getElementById('position');
+
+    //    var inputValue = inputElement.value;
+
+    //    // Remove non-alphabetic characters
+
+    //    var alphabeticValue = inputValue.replace(/[^a-zA-Z]/g, '');
+
+    //    // Update the input field value
+
+    //    inputElement.value = alphabeticValue;
+
+    //    // Display an error message if non-alphabetic characters are removed
+
+    //    var positionError = document.getElementById('positionError');
+
+    //    if (inputValue !== alphabeticValue) {
+
+    //        positionError.innerText = 'Please enter only alphabetical characters.';
+
+    //    } else {
+
+    //        positionError.innerText = '';
+
+    //    }
+
+    //}
+
+
+    function validateAlphabet() {
+        var inputElement = document.getElementById('position');
+        var inputValue = inputElement.value;
+
+        // Remove non-alphabetic characters and spaces
+        var alphabeticValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+
+        // Update the input field value
+        inputElement.value = alphabeticValue;
+
+        // Display an error message if non-alphabetic characters are removed
+        var positionError = document.getElementById('positionError');
+
+        if (inputValue !== alphabeticValue) {
+            positionError.innerText = 'Please enter only alphabetical characters and spaces.';
+        } else {
+            positionError.innerText = '';
+        }
+    }
+
+
+</script>

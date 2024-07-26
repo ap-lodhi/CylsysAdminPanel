@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Title = "AllClients"; }
+
+@using AdminCylsys.Models
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Clients</h5>
+
+        <!--Table code start-->
+
+        <div class="row">
+
+            <div class="col-md-12 text-end">
+
+                <a href="@Url.Action("AddClient", "Client" )" class="btn btn-primary btn-blue mb-3">
+
+                    <i class="fa fa-plus"></i> Add New Client
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+
+                <table class="table small border" id="clientmaster">
+
+                    <thead>
+
+                        <tr class="btn-primary btn-blue">
+
+                            <th scope="col">S.No.</th>
+
+                            <th width="20%" scope="col">Client Name</th>
+
+                            <th width="20%" scope="col">Website Url</th>
+
+                            <th width="25%" scope="col">Description</th>
+
+                            <th width="25%" scope="col">Client Image</th>
+
+                            <th width="10%" scope="col">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @{ var counter = 1; }
+
+                        @foreach (var item in Model as List<clientModel>)
+
+                        {
+
+                            <tr>
+
+                                <th>@counter</th>
+
+                                <td>@item.client_name</td>
+
+                                <td>
+
+                                    <a href="#" onclick="editClient(@item.id)"> @item.website_url</a>
+
+                                </td>
+
+                                <td>@item.description</td>
+
+                                <td>
+
+                                    @*<img src="~/Uploads/Screenshot (9).png" width="50%" />*@
+
+                                    <img src="~/Uploads/@Url.Content(item.client_Image)" width="50%" />
+
+                                </td>
+
+                                <td align="center">
+
+                                    @*<label class="switch">
+
+                                            <input type="checkbox" class="delete-checkbox"
+                                                onchange="deleteClient(this, @item.id)">
+
+                                            <span class="slider round"></span>
+
+                                        </label>*@
+
+                                    <button class="btn btn-primary btn-blue mb-3 btn-sm" onclick="deleteClient(@item.id)">
+
+                                        Delete
+
+                                    </button>
+
+
+                                    @*<label class="switch">
+
+                                            <input type="checkbox" checked>
+
+                                            <span class="slider round"></span>
+
+                                        </label>*@
+
+                                </td>
+
+                            </tr>
+                            counter++;
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+    function editClient(id) {
+
+        window.location.href = "/Client/EditClient?id=" + id;
+
+    }
+
+</script>
+
+@*
+    <script>
+
+        function deleteClient(checkbox, clientId) {
+
+            if (checkbox.checked && confirm("Are you sure you want to delete this case?") == true) {
+
+                $.ajax({
+
+                    url: "/Client/DeleteClient",
+
+                    type: 'POST',
+
+                    data: { clientId: clientId },
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                        alert(JSON.stringify(data.Message));
+
+                        console.log(data.Message);
+
+                        location.reload();
+
+                    },
+
+                    error: function (error) {
+
+                        console.error('Error during AJAX request:', error);
+
+                        alert('An error occurred during the deletion process.');
+
+                    }
+
+                });
+
+            } else {
+
+                // If the checkbox is unchecked, you may want to add logic here.
+
+                checkbox.checked = false;
+
+            }
+
+        }
+
+    </script>*@
+
+<script>
+
+    function deleteClient(clientId) {
+
+        if (confirm("Are you sure you want to delete this case?") == true) {
+
+            $.ajax({
+
+                url: "/Client/DeleteClient",
+
+                type: 'POST',
+
+                data: { clientId: clientId },
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    alert(JSON.stringify(data.Message));
+
+                    console.log(data.Message);
+
+                    location.reload();
+
+                },
+
+                error: function (error) {
+
+                    console.error('Error during AJAX request:', error);
+
+                    alert('An error occurred during the deletion process.');
+
+                }
+
+            });
+
+        }
+
+    }
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#clientmaster').DataTable({
+
+            searching: true,
+
+            scrollX: false,
+
+            aLengthMenu: [
+
+                [5, 10, 50, 100, -1],
+
+                [5, 10, 50, 100, "All"]
+
+            ],
+
+            iDisplayLength: 5
+
+        });
+
+    })
+
+
+</script>

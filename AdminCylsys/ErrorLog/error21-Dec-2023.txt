@@ -1,0 +1,120 @@
+DD-12-2023 12-14-46The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.ValidateLogin does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in D:\AdminCylsys\DAL\RegUser.cs:line 26
+DD-12-2023 12-14-53The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.ValidateLogin does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in D:\AdminCylsys\DAL\RegUser.cs:line 26
+DD-12-2023 12-27-09The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.ValidateLogin does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in D:\AdminCylsys\DAL\RegUser.cs:line 26
+DD-12-2023 12-28-05The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.ValidateLogin does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in D:\AdminCylsys\DAL\RegUser.cs:line 26
+DD-12-2023 12-29-17The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.ValidateLogin does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in D:\AdminCylsys\DAL\RegUser.cs:line 26

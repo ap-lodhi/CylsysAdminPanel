@@ -1,0 +1,251 @@
+﻿@{ ViewBag.Title = "AllPost"; }
+
+@using AdminCylsys.Models
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>All Applied Posts</h5>
+
+        <!--Table code start-->
+
+        <div class="row">
+
+            <div class="col-md-12 text-end">
+
+                <a href="@Url.Action("AddJob", "AppliedPost" )" class="btn btn-primary btn-blue mb-3">
+
+                    <i class="fa fa-plus"></i> Add New
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+
+                <table class="table small border" id="clientmaster">
+
+                    <thead>
+
+                        <tr class="btn-primary btn-blue">
+
+                            <th width="10%" scope="col">S.No.</th>
+
+                            <th width="20%" scope="col">Name</th>
+
+                            <th width="15%" scope="col">Email</th>
+
+                            <th width="15%" scope="col">Phone No.</th>
+
+                            <th width="25%" scope="col">Position</th>
+
+                            <th width="15%" scope="col">Position Id</th>
+
+                            <th width="30%" scope="col">Document Attached</th>
+
+                            <th width="40%" scope="col">Requirement</th>
+
+                            <th width="20%" scope="col">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @{ var counter = 1; }
+
+                        @foreach (var item in Model as List<AppliedJobModel>)
+
+                        {
+
+                            <tr>
+
+                                <th>@counter</th>
+
+                                <td>@item.name</td>
+
+                                <td>@item.email</td>
+
+                                <td>@item.phoneNo</td>
+
+                                <td>@item.position</td>
+
+                                <td>@item.position_id</td>
+
+                                @*<td>
+
+                                        <img src="~/Uploads/@Url.Content(item.image_name)" width="50%" />
+
+                                    </td>*@
+
+                                <td>
+
+                                    <a href="~/Uploads/@item.image_name" download style="color:black">
+
+                                        <i class="fa-solid fa-file"></i> @item.image_name
+
+                                        <i class="fa-solid fa-download"></i>
+
+                                    </a>
+
+                                </td>
+
+                                <td>@item.requirement_Brief</td>
+
+
+                                <td align="center">
+
+                                    @*<label class="switch">
+
+                                            <input type="checkbox" class="delete-checkbox"
+                                                onchange="deletePost(this, @item.id)">
+
+                                            <span class="slider round"></span>
+
+                                        </label>*@
+
+                                    <button class="btn btn-primary btn-blue mb-3 btn-sm" onclick="deletePost(@item.id)">
+
+                                        Delete
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                            counter++;
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+@*
+    <script>
+
+        function deletePost(checkbox, postId) {
+
+            if (confirm("Are you sure you want to delete this Post?")) {
+
+                $.ajax({
+
+                    url: "/AppliedPost/DeleteappliedPost",
+
+                    type: 'POST',
+
+                    data: { postId: postId },
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                        alert(JSON.stringify(data.Message));
+
+                        console.log(data.Message);
+
+                        location.reload();
+
+                    },
+
+                    error: function (error) {
+
+                        console.error('Error during AJAX request:', error);
+
+                        alert('An error occurred during the deletion process.');
+
+                    }
+
+                });
+
+            } else {
+
+                // If the user clicks "Cancel," uncheck the checkbox
+
+                checkbox.checked = false;
+
+            }
+
+        }
+
+    </script>*@
+
+<script>
+
+    function deletePost(postId) {
+
+        if (confirm("Are you sure you want to delete this Post?")) {
+
+            $.ajax({
+
+                url: "/AppliedPost/DeleteappliedPost",
+
+                type: 'POST',
+
+                data: { postId: postId },
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    alert(JSON.stringify(data.Message));
+
+                    console.log(data.Message);
+
+                    location.reload();
+
+                },
+
+                error: function (error) {
+
+                    console.error('Error during AJAX request:', error);
+
+                    alert('An error occurred during the deletion process.');
+
+                }
+
+            });
+
+        }
+
+    }
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#clientmaster').DataTable({
+
+            searching: true,
+
+            scrollX: false,
+
+            aLengthMenu: [
+
+                [5, 10, 50, 100, -1],
+
+                [5, 10, 50, 100, "All"]
+
+            ],
+
+            iDisplayLength: 5
+
+        });
+
+    })</script>

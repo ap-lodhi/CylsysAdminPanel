@@ -1,0 +1,256 @@
+﻿@model IEnumerable<AdminCylsys.Models.PressModel>
+
+@{
+                ViewBag.Title = "GetAllPress";
+
+                Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<style>
+
+    tr.disabled-row {
+        color: gray; /* Change the text color to gray for disabled rows */
+
+        pointer-events: none; /* Disable pointer events to prevent clicking on the row */
+    }
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Get All Press</h5>
+
+        <!-- Table code start -->
+
+        <div class="row">
+
+            <div class="col-md-12 text-end">
+
+                <a href="@Url.Action("AddPressDetails", "Press" )" class="btn btn-primary btn-blue mb-3">
+
+                    <i class="fa fa-plus"></i> Add New Press Details
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+
+                <table class="table small border" id="Press">
+
+                    <thead>
+
+                        <tr class="btn-primary btn-blue">
+
+                            <th scope="col">S.No.</th>
+
+                            <th width="20%" scope="col">Heading</th>
+
+                            <th width="25%" scope="col">Logo</th>
+
+                            <th width="25%" scope="col">Url</th>
+
+                            <th width="20%" scope="col">Publish Date</th>
+
+                            <th width="10%" scope="col">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        @{ var counter = 1; }
+                        @foreach (var item in Model)
+
+                        {
+
+                    <tr style="color: @(item.IsActive ? "inherit" : "gray");">
+
+                        <th>@counter</th>
+
+                        <td><b>@item.Heading</b></td>
+
+                        <td>
+
+                            <img width="140px" src="~/Uploads/@item.FileName" />
+
+                        </td>
+
+                        <td>
+
+                            <a href="@item.Url" target="_blank" style="color: @(item.IsActive ? "#4154f1" : "gray"); pointer-events: @(item.IsActive ? "auto" : "none");">@item.Url</a>
+
+                        </td>
+
+                        <td><b>@item.CreatedDate.ToString("dd/MM/yyyy")</b></td>
+
+                        <td align="center">
+
+                            <label class="switch">
+
+                                <input type="checkbox" @(item.IsActive ? "checked" : "") onchange="toggleRow(@item.Id, this)" style="pointer-events: @(item.IsActive ? "auto" : "none");">
+
+                                <span class="slider round"></span>
+
+                            </label>
+
+                        </td>
+
+                    </tr>
+                            counter++;
+                        }
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+@section scripts {
+
+    <script>
+
+        function toggleRow(id, checkbox) {
+
+            var action = checkbox.checked ? 'Enable' : 'Disable';
+
+            var confirmationMessage = "Are you sure you want to " + action + " this?";
+
+            if (confirm(confirmationMessage)) {
+
+                $("#dloading").show();
+
+                /*location.reload();*/
+
+                $.ajax({
+
+                    url: "/Press/" + action + "Press",
+
+                    type: "POST",
+
+                    data: {
+
+                        id: id,
+
+                        active: checkbox.checked
+
+                    },
+
+                    success: function (result) {
+
+                        if (result.status) {
+
+                            $("#dloading").hide();
+
+                            location.reload();
+
+                            toggleRowState(id, checkbox.checked);
+
+                        } else {
+
+                            console.error(result.Message);
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        console.error(err.message);
+
+                    }
+
+                });
+
+            } else {
+
+                checkbox.checked = !checkbox.checked;
+
+            }
+
+        }
+
+        function toggleRowState(id, isActive) {
+
+            var row = $("tr[data-id='" + id + "']");
+
+            if (isActive) {
+
+                row.removeClass('disabled-row');
+
+            } else {
+
+                row.addClass('disabled-row');
+
+            }
+
+        }
+
+
+        function loadFormData(id) {
+
+            window.location.href = "/Press/GetPressById?id=" + id;
+
+            $.ajax({
+
+                url: "/Press/GetPressById",
+
+                type: "GET",
+
+                data: { id: id },
+
+                success: function (result) {
+
+                },
+
+                error: function (err) {
+
+                    console.error(err.message);
+
+                }
+
+            });
+
+        }
+
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#Press').DataTable({
+
+                searching: true,
+
+                scrollX: false,
+
+                aLengthMenu: [
+
+                    [5, 10, 50, 100, -1],
+
+                    [5, 10, 50, 100, "All"]
+
+                ],
+
+                iDisplayLength: 5
+
+            });
+
+        })
+
+    </script>
+
+}

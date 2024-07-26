@@ -1,0 +1,240 @@
+DD-12-2023 17-15-19The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-18-37The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-19-32The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-19-38The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-19-41The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-19-42The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-19-44The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-20-02The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-20-29The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32
+DD-12-2023 17-20-37The error is:MySqlConnector.MySqlException (0x80004005): Unknown column 'city' in 'field list'
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetLocationList() in D:\AdminCylsys\DAL\PostClass.cs:line 32

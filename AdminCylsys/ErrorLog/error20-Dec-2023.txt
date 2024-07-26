@@ -1,0 +1,554 @@
+DD-12-2023 11-55-12The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 106
+DD-12-2023 12-01-51The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 106
+DD-12-2023 12-50-46The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 107
+DD-12-2023 12-55-13The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 107
+DD-12-2023 12-56-29The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 107
+DD-12-2023 12-57-41The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 107
+DD-12-2023 14-00-17The error is:MySqlConnector.MySqlException (0x80004005): Table 'cylsys.tbl_cities' doesn't exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList() in D:\AdminCylsys\DAL\PostClass.cs:line 107
+DD-12-2023 14-37-51The error is:MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select id, city_name from tbl_cities(NULL)' at line 1
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-07-26The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetStatesByCountryId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetStateList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 70
+DD-12-2023 15-07-31The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-07-42The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetStatesByCountryId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetStateList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 70
+DD-12-2023 15-07-54The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetStatesByCountryId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetStateList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 70
+DD-12-2023 15-08-21The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetStatesByCountryId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetStateList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 70
+DD-12-2023 15-08-21The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-10-30The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-11-04The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-15-27The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-17-23The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetCityByStateId does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-26-22The error is:System.ArgumentException: Parameter 'p_city_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 15-26-54The error is:System.ArgumentException: Parameter 'p_city_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-15-55The error is:System.ArgumentException: Parameter 'p_state_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-16-11The error is:System.ArgumentException: Parameter 'p_state_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-16-25The error is:System.ArgumentException: Parameter 'p_state_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-19-32The error is:System.ArgumentException: Parameter 'p_state_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-19-43The error is:System.ArgumentException: Parameter 'p_state_id' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.GetCityList(Nullable`1 id) in D:\AdminCylsys\DAL\PostClass.cs:line 108
+DD-12-2023 17-34-15The error is:MySqlConnector.MySqlException (0x80004005): PROCEDURE cylsys.GetPostAndJobData does not exist
+   at MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__107.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 918
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() in /_/src/MySqlConnector/MySqlDataReader.cs:line 503
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteReader() in /_/src/MySqlConnector/MySqlCommand.cs:line 112
+   at AdminCylsys.DAL.PostClass.getPostAndJobsList() in D:\AdminCylsys\DAL\PostClass.cs:line 235

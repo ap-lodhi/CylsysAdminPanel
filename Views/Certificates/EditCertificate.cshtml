@@ -1,0 +1,184 @@
+﻿@model AdminCylsys.Models.certificateModel
+
+@{
+    ViewBag.Title = "EditCertificate"; }
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Update Certificate</h5>
+
+        <hr>
+
+        <!---Form code start-->
+
+        <div class="row mt-4">
+
+            @using (Html.BeginForm("UpdateCertificate", "Certificates", FormMethod.Post, new
+
+            {
+
+                enctype =
+
+            "multipart/form-data",
+
+                id = "updateTeamForm"
+
+            }))
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" class="form-input" placeholder=" " name="id" value="@Model.id" />
+
+                <div class="col-md-12 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " name="title" value="@Model.title" required>
+
+                    <label for="" class="form-label" id="l1">Title <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " name="link" value="@Model.link" required>
+
+                    <label for="" class="form-label" id="l1">Link <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+
+                    <textarea class="form-input" placeholder=" " name="description" required> @Model.description </textarea>
+
+                    <label for="" class="form-label" id="l1">Description <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <br />
+                    <label>Upload Certificate <span class="text-danger">*</span></label>
+
+                    @* <label for="formFile" class="form-label">Default file input example</label>*@
+
+                    <input class="form-control" type="file" id="upload_certificate" onchange="displayFileName()"
+                           name="upload_certificate">
+
+                    <p id="selectedFileName">@Model.upload_certificate</p>
+
+                </div>
+
+                <input type="hidden" id="hiddenUploadTeamImage" name="upload_certificate"
+                       value="@Model.upload_certificate" />
+
+                <input type="hidden" id="ImagePath" name="Path" value="@Model.path" />
+
+
+                @Html.HiddenFor(model => model.id)
+
+
+                <div class="col-md-12 mb-3 text-end">
+
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Update" />
+
+                </div>
+            }
+
+        </div>
+
+        <!--Form code end-->
+
+    </section>
+
+</main>
+
+<script>
+
+    function displayFileName() {
+
+        var input = document.getElementById('upload_certificate');
+        var file = document.getElementById('selectedFileName').innerText;
+        var fileName = input.files.length > 0 ? input.files[0].name : file;
+
+        console.log(fileName);
+     
+
+        document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
+
+    }
+
+    // Call displayFileName initially to show the default file name
+
+    displayFileName();
+
+
+    $("#updateTeamForm").submit(function (event) {
+
+        event.preventDefault(); // Prevent the default form submission
+
+        var form = $(this)[0];
+
+        var formData = new FormData(form);
+
+        formData.append('title', $('[name="title"]').val());
+
+        formData.append('description', $('[name="description"]').val());
+
+        formData.append('link', $('[name="link"]').val());
+
+        formData.append('upload_certificate', document.getElementById('upload_certificate').files[0]);
+
+        formData.append('id', $('[name="id"]').val());
+
+        formData.append('Path', $('[name="Path"]').val());
+
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "@Url.Action("UpdateCertificate", "Certificates")",
+
+            data: formData,
+
+            contentType: false,
+
+            processData: false,
+
+            success: function (response) {
+
+                if (response.success) {
+
+                    alert(response.message);
+
+                    console.log(response.message);
+
+                    window.location.href = "@Url.Action("AllCertificates", "Certificates")";
+
+                    // Optionally, redirect or perform additional actions on success
+
+                } else {
+
+                    alert("Error: " + response.message);
+
+                }
+
+            },
+
+            error: function () {
+
+                alert("An error occurred. Please try again.");
+
+            }
+
+        });
+
+        return false; // Prevent the form from submitting in the traditional way
+
+    });
+
+</script>

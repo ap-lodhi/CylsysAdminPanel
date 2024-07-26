@@ -1,0 +1,80 @@
+﻿@{ ViewBag.Title = "AddCertificates"; }
+
+
+<main id="main" class="main">
+    <section class="section">
+        <h5>Certificate</h5>
+        <hr>
+
+
+
+        @if (TempData["SuccessMessage"] != null)
+
+        {
+
+            <script>
+
+            $(document).ready(function () {
+
+                alert("@TempData["SuccessMessage"]");
+
+                window.location.href = '@Url.Action("AllCertificates", "Certificates")';
+
+            });
+
+            </script>
+        }
+
+        <!-- Check for error message -->
+
+        @if (TempData["ErrorMessage"] != null)
+
+        {
+
+            <script>
+
+            $(document).ready(function () {
+
+                alert("@TempData["ErrorMessage"]");
+
+            });
+
+            </script>
+        }
+
+        <!---Form code start-->
+        <div class="row mt-4">
+            @using (Html.BeginForm("AddCertificates", "Certificates", FormMethod.Post, new
+            {
+                enctype =
+            "multipart/form-data"
+            }))
+
+            {
+                <div class="col-md-12 form-outline">
+                    <input type="text" class="form-input" placeholder=" " name="title" required>
+                    <label for="" class="form-label" id="l1">Title <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+                    <input type="text" class="form-input" placeholder=" " name="link" required>
+                    <label for="" class="form-label" id="l1">Link <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+                    <textarea class="form-input" rows="4" placeholder=" " name="description" required> </textarea>
+
+                    <label for="" class="form-label" id="l1">Description <span class="text-danger">*</span></label>
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <br />
+                    <label>Upload Certificate <span class="text-danger">*</span></label>
+                    @* <label for="formFile" class="form-label">Default file input example</label>*@
+                    <input class="form-control" type="file" id="formFile" name="upload_certificate" required>
+                </div>
+                <div class="col-md-12 mb-3 text-end">
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Save" />
+                </div>}
+        </div>
+        <!--Form code end-->
+    </section>
+</main>

@@ -1,0 +1,227 @@
+﻿@{
+
+    ViewBag.Title = "AddRequest";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>AddRequest</h2>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Add Request</h5>
+
+        <hr>
+
+        <!-- Form code start -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="text" class="form-input" id="name" placeholder=" " required />
+
+                <label for="" class="form-label" id="l1">Name  <span class="text-danger">*</span></label>
+
+                <span id="nameError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="email" class="form-input" id="email" placeholder=" " required />
+
+                <label for="" class="form-label" id="l1">Email <span class="text-danger">*</span> </label>
+
+                <span id="emailError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="tel" class="form-input" id="phoneNo" placeholder=" " required pattern="[0-9]{10}" />
+
+                <label for="" class="form-label" id="l1">Phone No <span class="text-danger">*</span></label>
+
+                <span id="phoneNoError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                @Html.DropDownList("service", ViewBag.orga as SelectList, "Select", new
+
+                {
+
+                @class = "form-select",
+
+                id = "services",
+
+                })
+
+                <label class="lablenew">Services  <span class="text-danger">*</span></label>
+
+                <span id="servicesError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <textarea class="form-input" id="requirementBrief" required></textarea>
+
+                <label for="" class="form-label" id="l1">Requirement Brief  <span class="text-danger">*</span></label>
+
+                <span id="requirementBriefError" class="text-danger"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 text-end">
+                <br />
+                <input type="submit" id="save" class="btn btn-primary btn-blue mb-3" value="Save" />
+
+            </div>
+
+        </div>
+
+        <!-- Form code end -->
+
+    </section>
+
+</main>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#save").click(function (event) {
+
+            event.preventDefault();
+
+            // Reset previous error messages
+
+            $(".text-danger").text("");
+
+            // Validation logic
+
+            let isValid = true;
+
+            if ($("#name").val() === "") {
+
+                $("#nameError").text("Name is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            const emailRegex = new RegExp('^[a-zA-Z0-9+_.-]+@@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,3}$');
+
+            if ($("#email").val() === "") {
+
+                $("#emailError").text("Email is required").css("color", "red");
+
+                isValid = false;
+
+            } else if (!emailRegex.test($("#Email").val())) {
+
+                $("#emailError").text("Invalid Email format").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            let phoneNoValue = $("#phoneNo").val();
+
+            if (phoneNoValue === "") {
+
+                $("#phoneNoError").text("Phone No is required").css("color", "red");
+
+                isValid = false;
+
+            } else if (!/^\d{10}$/.test(phoneNoValue)) {
+
+                $("#phoneNoError").text("Enter a valid 10-digit phone number").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if ($("#services").val() === "") {
+
+                $("#servicesError").text("Services is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if ($("#requirementBrief").val() === "") {
+
+                $("#requirementBriefError").text("Requirement Brief is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            // Repeat similar checks for other fields...
+
+            if (isValid) {
+
+                // Proceed with the form submission logic
+
+                let obj = {
+
+                    name: $("#name").val(),
+
+                    email: $("#email").val(),
+
+                    phoneNo: $("#phoneNo").val(),
+
+                    services: $("#services").val(),
+
+                    requirementBrief: $("#requirementBrief").val()
+
+                }
+
+                // AJAX request
+
+                $.ajax({
+
+                    url: "/RequestQuote/SaveRequest",
+
+                    type: "POST",
+
+                    data: obj,
+
+                    success: function (res) {
+
+                        if (res.status) {
+
+                            alert(res.Message);
+
+                            window.location.href = "/RequestQuote/AllRequestQuote";
+
+                        } else {
+
+                            alert(res.Message);
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        console.error(err.Message);
+
+                    },
+
+                });
+
+            }
+
+        });
+
+    });
+
+</script>

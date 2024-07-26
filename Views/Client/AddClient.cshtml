@@ -1,0 +1,78 @@
+﻿@model AdminCylsys.Models.clientModel
+
+<main id="main" class="main">
+    <section class="section">
+        <h5>Add Client</h5>
+        <hr>
+        @if (TempData["SuccessMessage"] != null)
+
+        {
+
+            <script>
+
+            $(document).ready(function () {
+
+                alert("@TempData["SuccessMessage"]");
+
+                window.location.href = '@Url.Action("AllClients", "Client")';
+
+            });
+
+            </script>
+}
+
+        <!-- Check for error message -->
+
+        @if (TempData["ErrorMessage"] != null)
+
+        {
+
+            <script>
+
+            $(document).ready(function () {
+
+                alert("@TempData["ErrorMessage"]");
+
+            });
+
+            </script>
+}
+
+
+        <!---Form code start-->
+        <div class="row mt-4">
+            @using (Html.BeginForm("AddClient", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="col-md-12 mb-3 form-outline">
+                    <input type="text" class="form-input" placeholder=" " name="client_name" required />
+                    <label for="" class="form-label" id="l1">Client name <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+                    <input type="text" class="form-input" placeholder=" " name="website_url" required />
+                    <label for="" class="form-label" id="l1">Client Website url <span class="text-danger">*</span> </label>
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <textarea class="form-input" rows="4" placeholder=" " name="description" required> </textarea>
+
+                    <label for="" class="form-label" id="l1">Description <span class="text-danger">*</span></label>
+
+                </div>
+                <div class="col-md-12 mb-3">
+                    <br />
+                    <label>Upload Client <span class="text-danger">*</span></label>
+                    @*<label for="formFile" class="form-label">Default file input example</label>*@
+                    <input class="form-control" type="file" id="formFile" name="client_Image" required />
+                </div>
+                <div class="col-md-12 mb-3 text-end">
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Save" />
+                </div>
+                }
+
+        </div>
+
+        <!--Form code end-->
+
+    </section>
+
+</main>

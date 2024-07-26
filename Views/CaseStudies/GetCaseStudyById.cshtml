@@ -1,0 +1,270 @@
+﻿@{ ViewBag.Title = "GetCaseStudyById";
+
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@model AdminCylsys.Models.CaseStudiesEdit_Mod
+
+<style>
+    label {
+        font-weight: bold;
+        margin-top: 12px;
+    }
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        @using (Html.BeginForm("UpdateCaseStudy", "CaseStudies", FormMethod.Post, new
+
+        {
+
+            enctype = "multipart/form-data",
+
+            id = "updatecASEForm"
+
+        }))
+
+        {
+
+            @Html.AntiForgeryToken()
+
+            <h4>Edit CaseStudy</h4>
+
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+
+                <label>Case Study <span class="text-danger">*</span></label>
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.case_studies_Name, new
+
+                    {
+
+                    htmlAttributes = new
+
+                    {
+
+                    @class = "form-control",
+
+                    id = "case_studies_Name"
+
+                    }
+
+                    })
+
+                    @Html.ValidationMessageFor(model => model.case_studies_Name, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Description  <span class="text-danger">*</span></label>
+
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.description, new
+
+                    {
+
+                    htmlAttributes = new
+
+                    {
+
+                    @class = "form-control",
+
+                    id =
+
+                    "description"
+
+                    }
+
+                    })
+
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Upload Case Study  <span class="text-danger">*</span></label>
+
+                <div class="col-md-10">
+
+                    <input class="form-control" type="file" id="upload_case_study" name="upload_case_study"
+                           onchange="displayFileName()" value="@Model.upload_case_study" />
+
+                    <p id="selectedFileName">@Model.upload_case_study</p>
+
+                </div>
+
+                <input type="hidden" id="hiddenUploadTeamImage" name="upload_case_study" value="@Model.upload_case_study" />
+
+                <input type="hidden" id="ImagePath" name="Path" value="@Model.path" />
+
+
+                @Html.HiddenFor(model => model.id)
+
+                <br />
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">
+
+                    <br />
+
+                    <input type="submit" value="Save" class="btn btn-primary" />
+
+                </div>
+
+            </div>}
+
+    </section>
+
+</main>
+
+@section scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+
+    $(document).ready(function () {
+
+        $('form').submit(function (event) {
+
+            $('.error-message').remove();
+
+            var isValid = true;
+
+            var caseStudiesName = $('#case_studies_Name').val();
+
+            if (!caseStudiesName.trim()) {
+
+                $('#case_studies_Name').addClass('is-invalid');
+
+                $('<span class="error-message text-danger">Case Study is required</span>').insertAfter('#case_studies_Name');
+
+                isValid = false;
+
+            } else {
+
+                $('#case_studies_Name').removeClass('is-invalid');
+
+            }
+
+            var description = $('#description').val();
+
+            if (!description.trim()) {
+
+                $('#description').addClass('is-invalid');
+
+                $('<span class="error-message text-danger">Description is required</span>').insertAfter('#description');
+
+                isValid = false;
+
+            } else {
+
+                $('#description').removeClass('is-invalid');
+
+            }
+
+
+            if (!isValid) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+        function displayFileName() {
+
+            var input = document.getElementById('upload_case_study');
+
+            var fileName = input.files.length > 0 ? input.files[0].name : '@Model.upload_case_study';
+
+            console.log(fileName);
+
+            document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
+
+        }
+
+        displayFileName();
+
+        $("#updatecASEForm").submit(function (event) {
+
+            event.preventDefault();
+
+            var form = $(this)[0];
+
+            var formData = new FormData(form);
+
+
+            formData.append('case_studies_Name', $('[name="case_studies_Name"]').val());
+
+            formData.append('description', $('[name="description"]').val());
+
+            formData.append('upload_case_study', document.getElementById('upload_case_study').files[0]);
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "@Url.Action("UpdateCaseStudy", "CaseStudies")",
+
+                data: formData,
+
+                contentType: false,
+
+                processData: false,
+
+                success: function (response) {
+
+                    if (response.success) {
+
+                        alert(response.message);
+
+                        console.log(response.message);
+
+                        displayFileName();
+
+                        window.location.href = "@Url.Action("CaseStudies", "CaseStudies")";
+
+                    } else {
+
+                        alert("Error: " + response.message);
+
+                    }
+
+                },
+
+                error: function () {
+
+                    alert("An error occurred. Please try again.");
+
+                }
+
+            });
+
+            return false;
+
+        });
+
+    });
+
+    </script>
+
+}

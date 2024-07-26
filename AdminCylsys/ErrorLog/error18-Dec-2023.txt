@@ -1,0 +1,14 @@
+DD-12-2023 16-41-27The error is:System.ArgumentException: Parameter 'p_position' not found in the collection.
+   at MySqlConnector.Core.CachedProcedure.AlignParamsWithDb(MySqlParameterCollection parameterCollection) in /_/src/MySqlConnector/Core/CachedProcedure.cs:line 125
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteStoredProcedure(IMySqlCommand command, IDictionary`2 cachedProcedures, ByteBufferWriter writer) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 189
+   at MySqlConnector.Core.SingleCommandPayloadCreator.WriteQueryCommand(CommandListPosition& commandListPosition, IDictionary`2 cachedProcedures, ByteBufferWriter writer, Boolean appendSemicolon) in /_/src/MySqlConnector/Core/SingleCommandPayloadCreator.cs:line 45
+   at MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.<ExecuteNonQueryAsync>d__78.MoveNext() in /_/src/MySqlConnector/MySqlCommand.cs:line 309
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlCommand.ExecuteNonQuery() in /_/src/MySqlConnector/MySqlCommand.cs:line 108
+   at AdminCylsys.DAL.PostClass.AddPostandJob(PostUser user) in D:\AdminCylsys\DAL\PostClass.cs:line 121

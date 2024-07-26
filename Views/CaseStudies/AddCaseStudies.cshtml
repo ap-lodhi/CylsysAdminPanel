@@ -1,0 +1,183 @@
+﻿@model AdminCylsys.Models.CaseStudiesEdit_Mod
+<style>
+
+    #toolbar {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #description {
+        border: 1px solid gray;
+        height: 60px;
+        width: 50%;
+    }
+</style>
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Add Case Study</h5>
+
+        <hr>
+      
+
+
+        @if (TempData["SuccessMessage"] != null)
+
+        {
+
+            <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["SuccessMessage"]");
+
+                        window.location.href = '@Url.Action("CaseStudies", "CaseStudies")';
+
+                });
+
+            </script>
+}
+
+        <!-- Check for error message -->
+
+        @if (TempData["ErrorMessage"] != null)
+
+        {
+
+            <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["ErrorMessage"]");
+
+                });
+
+            </script>
+}
+
+        <div class="row mt-4">
+
+            @using (Html.BeginForm("AddCaseStudies", "CaseStudies", FormMethod.Post, new
+            {
+                enctype =
+            "multipart/form-data"
+            }))
+
+            {
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="textarea" class="form-input" placeholder=" " name="case_studies_Name" />
+
+                    <label for="" class="form-label" id="l1">Case study name  <span class="text-danger">*</span></label>
+
+                    <span class="text-danger" id="case_studies_Name-error"></span>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <textarea class="form-input" placeholder="" rows="4" name="description"></textarea>
+
+                    <label for="" class="form-label" id="l1">description  <span class="text-danger">*</span></label>
+
+                    <span class="text-danger" id="description-error"></span>
+
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+                     
+                    <label>Upload Case  <span class="text-danger">*</span></label>
+
+                    <input class="form-control" type="file" id="formFile" name="upload_case_study" />
+
+                    <span class="text-danger" id="upload_case_study-error"></span>
+
+                </div>
+
+                <div class="col-md-12 mb-3 text-end">
+                    <br />
+
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Save" />
+
+                </div>
+            }
+
+        </div>
+
+    </section>
+
+</main>
+
+@section scripts {
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('form').submit(function (event) {
+
+                $('.text-danger').text('');
+
+                var isValid = true;
+
+
+
+                var caseStudiesName = $('input[name="case_studies_Name"]').val();
+
+                if (!caseStudiesName.trim()) {
+
+                    $('#case_studies_Name-error').text('Case Study Name is required');
+
+                    isValid = false;
+
+                }
+
+
+
+                var description = $('textarea[name="description"]').val();
+
+                if (!description.trim()) {
+
+                    $('#description-error').text('Description is required');
+
+                    isValid = false;
+
+                }
+
+
+
+                var uploadCaseStudy = $('input[name="upload_case_study"]').val();
+
+                if (!uploadCaseStudy.trim()) {
+
+                    $('#upload_case_study-error').text('Upload Case Study is required');
+
+                    isValid = false;
+
+                }
+
+                if (!isValid) {
+
+                    event.preventDefault();
+
+                } else {
+
+                   // alert("Data saved successfully!");
+
+                    window.location.href = "/CaseStudies/CaseStudies";
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+}

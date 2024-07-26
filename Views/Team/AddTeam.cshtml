@@ -1,0 +1,93 @@
+﻿@model  AdminCylsys.Models.TeamModel
+@{
+    ViewBag.Title = "AddTeam";
+}
+
+<main id="main" class="main">
+    <section class="section">
+        <h5>Add Team </h5>
+        <hr>
+        @if (TempData["SuccessMessage"] != null)
+
+        {
+
+    <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["SuccessMessage"]");
+
+                        window.location.href = '@Url.Action("GetTeam", "Team")';
+
+                });
+
+    </script>
+}
+
+        <!-- Check for error message -->
+
+        @if (TempData["ErrorMessage"] != null)
+
+        {
+
+    <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["ErrorMessage"]");
+
+                });
+
+    </script>
+}
+        <!---Form code start-->
+        @using (Html.BeginForm("AddTeam", "Team", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+    <div class="row">
+        <div class="col-md-12 mb-3 form-outline">
+            <input type="text" class="form-input" placeholder=" " name="EventName" required />
+            <label for="" class="form-label" id="l1">Event name  <span class="text-danger">*</span></label>
+        </div>
+
+
+
+
+
+
+        <div class="col-md-12 mb-3 form-outline">
+
+            <input type="date" class="form-input" placeholder=" " name="CreatedDate" required />
+
+            <label for="" class="form-label" id="l1">Created Date  <span class="text-danger">*</span></label>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label>Upload Team Image  <span class="text-danger">*</span></label>
+            @*<label for="formFile" class="form-label">Default file input example</label>*@
+            <input class="form-control" type="file" id="formFile" name="UploadTeamImage" required>
+        </div>
+        <div class="col-md-12 mb-3 form-outline">
+            <textarea class="form-input" rows="4" placeholder=" " name="Description" required> </textarea>
+
+            <label for="" class="form-label" id="l1">Description  <span class="text-danger">*</span></label>
+        </div>
+    </div>
+            <div class="col-md-12 text-end">
+                <br />
+                <input type="submit" class="btn btn-primary btn-blue mb-3" value="Save" />
+            </div>
+        }
+        <!--Form code end-->
+    </section>
+</main>
+<script>
+
+    var quill = new Quill('#Description', {
+
+        theme: 'snow'
+
+    });
+
+</script>
+
+

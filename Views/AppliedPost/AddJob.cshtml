@@ -1,0 +1,346 @@
+﻿@{
+
+    ViewBag.Title = "AddJob";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <!---Form code start-->
+
+        <h5>Add Post</h5>
+
+        <hr>
+
+        <div class="row mt-4">
+
+            <form id="jobForm" enctype="multipart/form-data">
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " id="name" name="name" required>
+
+                    <label for="" class="form-label" id="l1">Name  <span class="text-danger">*</span></label>
+
+                    <span id="nameError" class="text-danger"></span> <!-- Add red span for validation -->
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="email" class="form-input" placeholder=" " id="email" name="email" required>
+
+                    <label for="" class="form-label" id="l1">Email  <span class="text-danger">*</span></label>
+
+                    <span id="emailError" class="text-danger"></span> <!-- Add red span for validation -->
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="number" class="form-input" placeholder=" " id="phoneNo" name="phoneNo" required>
+
+                    <label for="" class="form-label" id="l1">Phone Number  <span class="text-danger">*</span></label>
+
+                    <span id="phoneNoError" class="text-danger"></span> <!-- Add red span for validation -->
+
+                </div>
+
+
+                <div class="col-md-12 mb-3 form-outline">
+                    @*<input type="text" class="form-input" placeholder=" " id="position" name="position" required>*@
+                    @Html.DropDownList("position", ViewBag.position as SelectList, "Select", new
+               {
+                   @class = "form-select",
+                   id = "position",
+                   name = "position",
+               })
+                    <label for="" class="lablenew">Position  <span class="text-danger">*</span></label>
+                    <span id="positionError" class="text-danger"></span> <!-- Add red span for validation -->
+                </div>
+
+                <!--<div class="col-md-12 mb-3 form-outline">
+
+        <input type="text" class="form-input" placeholder=" " id="position" name="position" required>
+
+        <label for="" class="form-label" id="l1">Position</label>
+
+        <span id="positionError" class="text-danger"></span>-->
+                <!-- Add red span for validation -->
+                <!--</div>-->
+
+                <div class="col-md-12 mb-4">
+
+                    <label>Upload Resume  <span class="text-danger">*</span></label>
+
+                    <input class="form-control" type="file" id="image_name" name="image_name" required />
+
+                    <span id="formFileError" class="text-danger"></span> <!-- Add red span for validation -->
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <textarea class="form-input" placeholder=" " name="requirement_Brief" id="requirement_Brief"
+                              required></textarea>
+
+                    <label for="" class="form-label" id="l1">Requirement Brief  <span class="text-danger">*</span></label>
+
+                    <span id="requirement_BriefError" class="text-danger"></span> <!-- Add red span for validation -->
+
+                </div>
+
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-12 text-end">
+
+                        <button type="button" class="btn btn-primary btn-blue mb-3" id="submit">Save</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <!--Form code end-->
+
+    </section>
+
+</main>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#submit").click(function () {
+
+            // Clear previous error messages
+
+            $("span[id$='Error']").text("");
+
+            // Validate input fields
+
+            var isValid = validateForm();
+
+            if (isValid) {
+
+                // If all validations pass, proceed with the AJAX request
+
+                var formData = new FormData($("#jobForm")[0]);
+
+                $.ajax({
+
+                    type: "POST",
+
+                    url: "/AppliedPost/appliedJobs",
+
+                    data: formData,
+
+                    processData: false,
+
+                    contentType: false,
+
+                    success: function (data) {
+
+                        if (data && data.success) {
+
+                            alert("Data Saved successfully!");
+
+                            window.location.href = "/AppliedPost/AllPost";
+
+                        } else {
+
+                            console.error("Error occurred while saving data.");
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        console.error("Error occurred while saving data.");
+
+                        console.error(err.responseText);
+
+                    },
+
+                });
+
+            }
+
+        });
+
+        function validateForm() {
+
+            var isValid = true;
+
+            // Validate each input field and update error spans
+
+            isValid = validateInput("name", "Name is required.") && isValid;
+
+            isValid = validateEmail("email", "Invalid email address.") && isValid;
+
+            isValid = validatePhone("phoneNo", "Invalid phone number.") && isValid;
+
+            isValid = validateInput("position", "Position is required.") && isValid;
+
+            isValid = validateFileInput("image_name", "Please upload a resume.") && isValid;
+
+            isValid = validateInput("requirement_Brief", "Requirement Brief is required.") && isValid;
+
+            return isValid;
+
+        }
+
+        function validateInput(inputId, errorMessage) {
+
+            var value = $("#" + inputId).val();
+
+            if (!value.trim()) {
+
+                $("#" + inputId + "Error").text(errorMessage);
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+        function validateEmail(emailId, errorMessage) {
+
+            var email = $("#" + emailId).val();
+
+            const emailRegex = new RegExp('^[a-zA-Z0-9+_.-]+@@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,3}$');
+
+            if (!emailRegex.test(email)) {
+
+                $("#" + emailId + "Error").text(errorMessage);
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+        function validatePhone(phoneId, errorMessage) {
+
+            var phone = $("#" + phoneId).val();
+
+            // You may need to adjust the regex based on the specific format you want to allow
+
+            var phoneRegex = /^\d{10}$/; // This example assumes a 10-digit phone number
+
+            if (!phoneRegex.test(phone)) {
+
+                $("#" + phoneId + "Error").text(errorMessage);
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+        function validateFileInput(inputId, errorMessage) {
+
+            var fileInput = $("#" + inputId)[0];
+
+            if (fileInput.files.length === 0) {
+
+                $("#" + inputId + "Error").text(errorMessage);
+
+                return false;
+
+            }
+
+            return true;
+
+        }
+
+    });
+
+
+</script>
+
+@*
+    <script>
+
+        $(document).ready(function () {
+
+            debugger;
+
+            $("#submit").click(function () {
+
+                debugger;
+
+                // Clear previous error messages
+
+                $("span[id$='Error']").text("");
+
+                // Create a FormData object to handle file uploads
+
+                var formData = new FormData($("#jobForm")[0]);
+
+                debugger;
+
+                // If all validations pass, proceed with the AJAX request
+
+                $.ajax({
+
+                    type: "POST",
+
+                    url: "/AppliedPost/appliedJobs",
+
+                    data: formData,
+
+                    processData: false,
+
+                    contentType: false,
+
+                    success: function (data) {
+
+                        if (data && data.success) {
+
+                            alert("Data Saved successfully!");
+
+                            window.location.href = "/AppliedPost/AllPost";
+
+                        } else {
+
+                            console.error("Error occurred while saving data.");
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        console.error("Error occurred while saving data.");
+
+                        console.error(err.responseText);
+
+                    },
+
+                });
+
+            });
+
+        });
+
+    </script>*@

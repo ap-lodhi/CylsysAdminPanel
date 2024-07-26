@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Send Email";
+    Layout = null; // Disable layout for this page
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Email</title>
+    <style>
+        /* Add any additional styling as needed */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Press Details Added Successfully</h2>
+
+    <table>
+        <tr>
+            <th>Heading</th>
+            <td>@Model.Heading</td>
+        </tr>
+        <tr>
+            <th>URL</th>
+            <td>@Model.Url</td>
+        </tr>
+        <tr>
+            <th>File Name</th>
+            <td>@Model.FileName</td>
+        </tr>
+    </table>
+
+    <p>Thank you for using our service.</p>
+</body>
+</html>

@@ -1,0 +1,426 @@
+﻿@model AdminCylsys.Models.TestimonialModel
+
+@{
+    ViewBag.Title = "GetTestimonialById";
+
+}
+
+<style>
+    /*---------star style----------*/
+
+    .star {
+        font-size: 5vh;
+        cursor: pointer;
+    }
+
+    .one {
+        color: #ff9900;
+    }
+
+    .two {
+        color: #ff9900;
+    }
+
+    .three {
+        color: #ff9900;
+    }
+
+    .four {
+        color: #ff9900;
+    }
+
+    .five {
+        color: rgb(24, 159, 14);
+    }
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <!---Form code start-->
+
+        <h5>Edit Testimonial</h5>
+
+        <hr>
+
+        <div class="row mt-4">
+
+            @using (Html.BeginForm("UpdateTestimonial", "Testimonial", FormMethod.Post, new
+
+            {
+
+                enctype =
+
+            "multipart/form-data",
+
+                id = "updateTeamForm"
+
+            }))
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                <div class="d-none">
+
+                    <textarea class="form-input" placeholder=" " name="id" id="id">@Model.id</textarea>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <select id="client_name" class="form-select" name="client">
+
+                        @foreach (var item in ViewBag.cli)
+
+                        {
+
+                            <option value="@item.Value" @(item.Value == Model.client_id ? "selected ='selected' " : "" )>
+
+                                @item.Text
+
+                            </option>
+                        }
+
+                    </select>
+
+
+                    @*@Html.DropDownList("client_name", ViewBag.cli as SelectList, Model.client_name, new
+
+                        {
+
+                        @class = "form-select",
+
+                        id = "client_name",
+
+                        name = "client_name"
+
+                        })*@
+
+                <label for="" class="lablenew">Client Name <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " id="project_name" name="project_name"
+                           value="@Model.project_name" required>
+
+                    @*@Html.DropDownList("project_name", ViewBag.pro as SelectList, Model.project_name, new
+
+                        {
+
+                        @class =
+
+                        "form-select",
+
+                        id = "project_name",
+
+                        name = "project_name"
+
+                        })*@
+
+                <label class="form-label" id="l1">Project name <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    @*<select class="form-select" name="rating" id="rating">
+
+                            <option disabled>Select</option>
+
+                            <option>@Model.rating</option>
+
+                            <option>1</option>
+
+                            <option>2</option>
+
+                            <option>3</option>
+
+                            <option>4</option>
+
+                            <option>5</option>
+
+                        </select>*@
+
+                    <label class="lable">
+                        <h6>Rating:-</h6>
+                    </label>
+
+                    <span onclick="gfg(1)" class="star one">
+
+                        ★
+
+                    </span>
+
+                    <span onclick="gfg(2)" class="star">
+
+                        ★
+
+                    </span>
+
+                    <span onclick="gfg(3)" class="star">
+
+                        ★
+
+                    </span>
+
+                    <span onclick="gfg(4)" class="star">
+
+                        ★
+
+                    </span>
+
+                    <span onclick="gfg(5)" class="star">
+
+                        ★
+
+                    </span>
+
+                    <p id="output" style="display:none">
+
+                        Rating is: 1/5
+
+                    </p>
+
+                    <div class="d-none">
+
+                        <input type="text" id="ratingInput" name="rating" value="@Model.rating" />
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>Upload Image <span class="text-danger">*</span></label>
+
+                    <input class="form-control" type="file" id="testimonial_Image" name="testimonial_Image"
+                           onchange="displayFileName()" value="@Model.testimonial_Image" />
+
+                    <p id="selectedFileName">@Model.testimonial_Image</p>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <textarea class="form-input" placeholder=" " name="description"
+                              id="description" required>@Model.description</textarea>
+
+                    <label for="" class="form-label" id="l1">Description</label>
+
+                </div>
+
+                <input type="hidden" id="hiddenUploadTeamImage" name="testimonial_Image" value="@Model.testimonial_Image" />
+
+                <input type="hidden" id="ImagePath" name="Path" value="@Model.path" /> @* @Html.HiddenFor(model =>
+
+                    model.Path, new { id = "hiddenFilePath", value })*@
+
+                @Html.HiddenFor(model => model.id)
+
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-12 text-end">
+
+                        <input type="submit" class="btn btn-primary btn-blue mb-3" value="Update">
+
+                    </div>
+
+                </div>}
+
+        </div>
+
+        <!--Form code end-->
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+
+        function displayFileName() {
+
+            var input = document.getElementById('testimonial_Image');
+
+            var fileName = input.files.length > 0 ? input.files[0].name : '@Model.testimonial_Image';
+
+            console.log(fileName);
+
+            document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
+
+        }
+
+        // Call displayFileName initially to show the default file name
+
+        displayFileName();
+
+        $("#updateTeamForm").submit(function (event) {
+
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $(this)[0];
+
+            var formData = new FormData(form);
+
+            formData.append('client_name', $('[name="client"]').val());
+
+            formData.append('project_name', $('[name="project"]').val());
+
+            formData.append('rating', $('[name="rating"]').val());
+
+            formData.append('testimonial_Image', document.getElementById('testimonial_Image').files[0]);
+
+            formData.append('id', $('[name="id"]').val());
+
+            formData.append('description', $('[name="description"]').val());
+
+            formData.append('path', $('[name="path"]').val());
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "@Url.Action("UpdateTestimonial", "Testimonial")",
+
+                data: formData,
+
+                contentType: false,
+
+                processData: false,
+
+                success: function (response) {
+
+                    if (response.success) {
+
+                        alert(response.message);
+
+                        console.log(response.message);
+
+                        window.location.href = "@Url.Action("AllTestimonial", "Testimonial")";
+
+                        // Optionally, redirect or perform additional actions on success
+
+                    } else {
+
+                        alert("Error: " + response.message);
+
+                    }
+
+                },
+
+                error: function () {
+
+                    alert("An error occurred. Please try again.");
+
+                }
+
+            });
+
+            return false; // Prevent the form from submitting in the traditional way
+
+        });
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            // Set the initial state of stars based on the Model.rating value
+
+            debugger;
+
+            var initialRating = @Model.rating;
+
+            debugger;
+
+            gfg(initialRating);
+
+            debugger;
+
+            $('.star').on('click', function () {
+
+                var value = $(this).data('value');
+
+                $('#rating').val(value);
+
+                // Highlight the selected stars
+
+                $('.star').removeClass('selected');
+
+                $(this).addClass('selected');
+
+            });
+
+        });
+
+    </script>
+
+    <script>
+
+        let stars =
+
+            document.getElementsByClassName("star");
+
+        let output =
+
+            document.getElementById("output");
+
+        let ratingInput = document.getElementById("ratingInput");
+
+        // Funtion to update rating
+
+        function gfg(n) {
+
+            remove();
+
+            for (let i = 0; i < n; i++) {
+
+                if (n == 1) cls = "one";
+
+                else if (n == 2) cls = "two";
+
+                else if (n == 3) cls = "three";
+
+                else if (n == 4) cls = "four";
+
+                else if (n == 5) cls = "five";
+
+                stars[i].className = "star " + cls;
+
+            }
+
+            const rating = n + "/5";
+
+            output.innerText = "Rating is: " + rating;
+
+            // Set the rating value to the input box
+
+            ratingInput.value = n;
+
+        }
+
+        // To remove the pre-applied styling
+
+        function remove() {
+
+            let i = 0;
+
+            while (i < 5) {
+
+                stars[i].className = "star";
+
+                i++;
+
+            }
+
+        }
+
+    </script>
+
+</main>

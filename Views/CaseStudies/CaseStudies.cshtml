@@ -1,0 +1,360 @@
+﻿
+@{ ViewBag.Title = "AllCaseStudies"; }
+
+@using AdminCylsys.Models
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Case Studies</h5>
+
+        <!-- Table code start -->
+
+        <div class="row">
+
+            <div class="col-md-12 text-end">
+
+                <a href="@Url.Action("AddCaseStudies", "CaseStudies" )" class="btn btn-primary btn-blue mb-3">
+
+                    <i class="fa fa-plus"></i> Add New Case Study
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <div class="col-md-12" style="overflow-x: scroll;">
+
+                <table class="table small border" id="casestudy">
+
+                    <thead>
+
+                        <tr class="btn-primary btn-blue">
+
+                            <th scope="col">S.No.</th>
+
+                            <th width="20%" scope="col">Case Studies Name</th>
+
+                            <th width="25%" scope="col">File Name</th>
+
+                            <th width="25%" scope="col">Description</th>
+
+                            <th width="10%" scope="col">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        @{ var counter = 1; }
+                        @foreach (var item in Model as List<CaseStudiesEdit_Mod>)
+
+                        {
+
+                            if (item.Active)
+
+                            {
+
+                                <tr id="row_@item.id">
+
+                                    <th>@item.id</th>
+
+                                    <td>
+                                        <a href="#" data-id="@item.id"
+                                           onclick="loadFormData(@item.id)">@item.case_studies_Name</a>
+                                    </td>
+
+                                    <td>
+
+                                        <a href="~/Uploads/@item.upload_case_study" download style="color:black">
+
+                                            <i class="fa-solid fa-file"></i> @item.upload_case_study
+
+                                            <i class="fa-solid fa-download"></i>
+
+                                        </a>
+
+                                    </td>
+
+                                    <td>@item.description</td>
+
+
+
+                                    <td align="center">
+
+                                        @if (item.Active)
+
+                                        {
+
+                                            <label class="switch">
+
+                                                <input type="checkbox" checked onchange="toggleRow(@item.id, this)">
+
+                                                <span class="slider round"></span>
+
+                                            </label>
+                                        }
+
+                                        else
+
+                                        {
+
+                                            <label class="switch">
+
+                                                <input type="checkbox" onchange="toggleRow(@item.id, this)">
+
+                                                <span class="slider round"></span>
+
+                                            </label>
+                                        }
+
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                            else
+
+                            {
+
+                                <tr id="row_@item.id" style="color:gray;">
+
+                                    <th>@item.id</th>
+
+                                    <td>
+
+                                        <a href="#" data-id="@item.id" style="color:gray;pointer-events:none"
+                                           onclick="loadFormData(@item.id)">@item.case_studies_Name</a>
+
+
+
+                                    </td>
+
+                                    <td>
+
+                                        <a href="~/Uploads/@item.upload_case_study" download
+                                           style="color:gray ; pointer-events:none">
+
+                                            <i class="fa-solid fa-file"></i> @item.upload_case_study
+
+                                            @*<i class="fa-solid fa-download"></i>*@
+
+                                        </a>
+
+                                    </td>
+
+                                    <td>@item.description</td>
+
+
+                                    <td align="center">
+
+                                        @if (item.Active)
+
+                                        {
+
+                                            <label class="switch">
+
+                                                <input type="checkbox" checked onchange="toggleRow(@item.id, this)">
+
+                                                <span class="slider round"></span>
+
+                                            </label>
+                                        }
+
+                                        else
+
+                                        {
+
+                                            <label class="switch">
+
+                                                <input type="checkbox" onchange="toggleRow(@item.id, this)">
+
+                                                <span class="slider round"></span>
+
+                                            </label>
+                                        }
+
+                                        @* <i class="fa fa-download"></i>*@
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                            counter++;
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Table code end -->
+
+    </section>
+
+</main>
+
+
+
+<script>
+    function toggleRow(id, checkbox) {
+        // Show alert based on the checked status
+        if (checkbox.checked) {
+            alert("Are you sure want to Enable this!!");
+        } else {
+            alert("Are you sure want to Disable this!!");
+        }
+        debugger;
+        $("#dloading").show();
+        $.ajax({
+            url: "/CaseStudies/DisablePost",
+            type: "POST",
+            data: {
+                id: id,
+                active: checkbox.checked ? true : false  // Convert boolean to 1 or 0
+            },
+            success: function (result) {
+                if (result.status) {
+                    $("#dloading").hide();
+                    // Reload the page after a successful toggle
+                    location.reload();
+
+                } else {
+                    console.error(result.Message);
+                }
+            },
+            error: function (err) {
+                // Handle error
+                console.error(err.message);
+            }
+        });
+    }
+</script>
+
+
+
+<script>
+    function loadFormData(id) {
+
+        window.location.href = "/CaseStudies/GetCaseStudyById?id=" + id;
+
+        debugger;
+
+        $.ajax({
+
+            url: "/CaseStudies/GetCaseStudyById",
+
+            type: "GET",
+
+            data: { id: id },
+
+            success: function (result) {
+
+                console.log(result);
+
+            },
+
+            error: function (err) {
+
+                console.error(err.message);
+
+            }
+
+        });
+
+    }
+</script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#casestudy').DataTable({
+            searching: true,
+            scrollX: false,
+            aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+            iDisplayLength: 5
+        });
+    })
+
+
+</script>
+
+
+@*<script>
+
+        function toggleRow(id, checkbox) {
+
+            // Show alert based on the checked status
+
+            if (checkbox.checked) {
+
+                alert("Are you sure want to Enable this!!");
+
+            } else {
+
+                alert("Are you sure want to Disable this!!");
+
+            }
+
+            debugger;
+
+            $("#dloading").show();
+
+            $.ajax({
+
+                url: "/CaseStudies/DisablePost",
+
+                type: "POST",
+
+                data: {
+
+                    id: id,
+
+                    active: checkbox.checked ? true : false  // Convert boolean to 1 or 0
+
+                },
+
+                success: function (result) {
+
+                    if (result.status) {
+
+                        $("#dloading").hide();
+
+                        // Reload the page after a successful toggle
+
+                        location.reload();
+
+
+                    } else {
+
+                        console.error(result.Message);
+
+                    }
+
+                },
+
+                error: function (err) {
+
+                    // Handle error
+
+                    console.error(err.message);
+
+                }
+
+            });
+
+        }
+
+    </script>*@

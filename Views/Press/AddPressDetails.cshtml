@@ -1,0 +1,123 @@
+﻿@model AdminCylsys.Models.PressModel
+<style>
+
+    #toolbar {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    #description {
+        border: 1px solid gray;
+        height: 60px;
+        width: 50%;
+    }
+</style>
+
+<main id="main" class="main">
+    <section class="section">
+        <h5>Add Press Details</h5>
+        <hr>
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <script>
+                $(document).ready(function () {
+                    alert("@TempData["SuccessMessage"]");
+                        window.location.href = '@Url.Action("GetAllPress", "Press")';
+                });
+            </script>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <script>
+                $(document).ready(function () {
+                    alert("@TempData["ErrorMessage"]");
+                });
+            </script>
+        }
+
+        <div class="row mt-4">
+
+            @using (Html.BeginForm("AddPressDetails", "Press", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " name="Heading" />
+
+                    <label for="" class="form-label" id="Heading">Heading <span class="text-danger">*</span></label>
+
+                    <span class="text-danger" id="Heading-error"></span>
+
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " name="Url" />
+
+                    <label for="" class="form-label" id="Url">Url <span class="text-danger">*</span></label>
+
+                    <span class="text-danger" id="Url-error"></span>
+
+                </div>
+                <div class="col-md-12 mb-3">
+
+                    <label>Upload Logo <span class="text-danger">*</span></label>
+
+                    <input class="form-control" type="file" id="formFile" name="FileName" />
+
+                    <span class="text-danger" id="FileName-error"></span>
+
+                </div>
+
+                <div class="col-md-12 mb-3 text-end">
+                    <br />
+
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Save" />
+
+                </div>
+            }
+
+        </div>
+
+    </section>
+
+</main>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (event) {
+                $('.text-danger').text('');
+                var isValid = true;
+
+                var caseStudiesName = $('input[name="Heading"]').val();
+                if (!caseStudiesName.trim()) {
+                    $('#Heading-error').text('Heading is required');
+                    isValid = false;
+                }
+
+                var urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+                var url = $('input[name="Url"]').val();
+                if (!url.trim()) {
+                    $('#Url-error').text('URL is required');
+                    isValid = false;
+                } else if (!urlRegex.test(url)) {
+                    $('#Url-error').text('Invalid URL');
+                    isValid = false;
+                }
+
+                var uploadCaseStudy = $('input[name="FileName"]').val();
+                if (!uploadCaseStudy.trim()) {
+                    $('#FileName-error').text('Logo is required');
+                    isValid = false;
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+}
+

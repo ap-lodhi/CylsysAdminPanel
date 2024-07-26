@@ -1,0 +1,61 @@
+﻿@model AdminCylsys.Models.PressModel
+@{
+
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Press Details Added</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>New Press Details Added</h2>
+
+    <table>
+        <tr>
+            <th>Press Heading</th>
+            <td>@Model.Heading</td>
+        </tr>
+        <tr>
+            <th>Press URL</th>
+            <td><a href="@Model.Url" target="_blank">@Model.Url</a></td>
+
+        </tr>        
+    </table>
+</body>
+</html>

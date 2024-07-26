@@ -1,0 +1,251 @@
+﻿@{
+
+    ViewBag.Title = "AddPartner";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Add Partner</h5>
+
+        <hr>
+
+        <!---Form code start-->
+
+        <div class="row mt-4">
+
+            <!-- First Name -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="text" class="form-input" id="Fname" placeholder=" " required />
+
+                <label for="Fname" class="form-label" id="l1">First Name <span class="text-danger">*</span></label>
+
+                <span id="FnameError" class="validation-error"></span>
+
+            </div>
+
+            <!-- Last Name -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="text" class="form-input" id="Lname" placeholder=" " required />
+
+                <label for="Lname" class="form-label" id="l1">Last Name <span class="text-danger">*</span> </label>
+
+                <span id="LnameError" class="validation-error"></span>
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="email" class="form-input" id="Email" placeholder=" " required />
+
+                <label for="Email" class="form-label" id="l1">Email  <span class="text-danger">*</span></label>
+
+                <span id="EmailError" class="validation-error"></span>
+
+            </div>
+
+            <!-- Organization Name -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="text" class="form-input" id="orgName" placeholder=" " required />
+
+                <label for="orgName" class="form-label" id="l1">Organization Name <span class="text-danger">*</span> </label>
+
+                <span id="orgNameError" class="validation-error"></span>
+
+            </div>
+
+            <!-- Organization Type -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                @Html.DropDownList("country", ViewBag.orga as SelectList, "Select", new
+
+                {
+
+                @class = "form-select",
+
+                id = "org_type",
+
+                })
+
+                <label class="lablenew">Organization Type <span class="text-danger">*</span></label>
+
+                <span id="orgTypeError" class="validation-error"></span>
+
+            </div>
+
+            <!-- Expectations -->
+
+            <div class="col-md-12 mb-3 form-outline">
+
+                <input type="text" class="form-input" id="expect" placeholder=" " required />
+
+                <label for="expect" class="form-label" id="l1">Expectations</label>
+
+                <span id="expectError" class="validation-error"></span>
+
+            </div>
+
+            <div class="col-md-12 mb-3 text-end">
+
+                <input type="submit" id="save" class="btn btn-primary btn-blue mb-3" value="Save" />
+
+            </div>
+
+        </div>
+
+        <!--Form code end-->
+
+    </section>
+
+</main>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#save").click(function (event) {
+
+            event.preventDefault();
+
+            // Reset previous error messages
+
+            $(".validation-error").text("");
+
+            // Validation logic
+
+            let isValid = true;
+
+            if ($("#Fname").val() === "") {
+
+                $("#FnameError").text("First Name is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if ($("#Lname").val() === "") {
+
+                $("#LnameError").text("Last Name is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            // Validate Email using a regular expression
+
+            const emailRegex = new RegExp('^[a-zA-Z0-9+_.-]+@@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,3}$');
+
+            if ($("#Email").val() === "") {
+
+                $("#EmailError").text("Email is required").css("color", "red");
+
+                isValid = false;
+
+            } else if (!emailRegex.test($("#Email").val())) {
+
+                $("#EmailError").text("Invalid Email format").css("color", "red");
+
+                isValid = false;
+
+            }
+
+
+            if ($("#orgName").val() === "") {
+
+                $("#orgNameError").text("Organization Name is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if ($("#org_type").val() === "") {
+
+                $("#orgTypeError").text("Organization Type is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if ($("#expect").val() === "") {
+
+                $("#expectError").text("Expectations is required").css("color", "red");
+
+                isValid = false;
+
+            }
+
+            if (isValid) {
+
+                // Proceed with the form submission logic
+
+                let obj = {
+
+                    First_name: $("#Fname").val(),
+
+                    Last_name: $("#Lname").val(),
+
+                    Email: $("#Email").val(),
+
+                    Organization_name: $("#orgName").val(),
+
+                    Organization_type: $("#org_type").val(),
+
+                    Expectations: $("#expect").val(),
+
+                }
+
+                $.ajax({
+
+                    url: "/partner/savepartner",
+
+                    type: "POST",
+
+                    data: obj,
+
+                    success: function (res) {
+
+
+                        if (res.status) {
+
+                            alert(res.Message);
+
+                            window.location.href = "/partner/Index";
+
+                        } else {
+
+                            alert(res.Message);
+
+                        }
+
+                    },
+
+                    error: function (err) {
+
+                        console.error(err.Message);
+
+                    },
+
+                });
+
+            }
+
+        });
+
+    });
+
+
+</script>

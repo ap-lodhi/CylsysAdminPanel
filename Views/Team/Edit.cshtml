@@ -1,0 +1,182 @@
+﻿@model AdminCylsys.Models.TeamModel
+@{
+    ViewBag.Title = "EditTeam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Edit Team</h5>
+
+        <hr />
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div id="message-container"></div>
+
+                @using (Html.BeginForm("UpdateTeam", "Team", FormMethod.Post, new
+                {
+                    enctype = "multipart/form-data",
+                    id
+                = "updateTeamForm"
+                }))
+
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="col-md-12 mb-3 form-outline">
+
+                        <input type="text" class="form-input" placeholder=" " name="EventName" value="@Model.EventName"
+                               required />
+
+                        @Html.LabelFor(model => model.EventName, new { @class = "form-label", @id = "l1" })
+
+                    </div>
+
+
+                    <div class="col-md-12 mb-3 form-outline">
+
+                        <input type="text" class="form-input" placeholder=" " name="Description" value="@Model.Description"
+                               required />
+
+                        @Html.LabelFor(model => model.Description, new { @class = "form-label", @id = "l1" })
+
+                    </div>
+
+                    <div class="col-md-12 mb-3 form-outline">
+
+                        <input type="date" class="form-input" placeholder=" " name="CreatedDate"
+                               value="@(Model.CreatedDate.HasValue ? Model.CreatedDate.Value.ToString(" yyyy-MM-dd") :
+                        string.Empty)" required />
+
+                        @Html.LabelFor(model => model.CreatedDate, new { @class = "form-label", @id = "createdDate" })
+
+                    </div>
+
+                    <div class="col-md-12 mb-3 form-outline">
+
+                        <label>Upload Team Image <span class="text-danger">*</span></label>
+
+                        <input class="form-control" type="file" id="uploadTeamImage" name="UploadTeamImage"
+                               onchange="displayFileName()" value="@Model.UploadTeamImage" />
+
+                        <p id="selectedFileName">@Model.UploadTeamImage</p>
+
+                    </div>
+
+                    <input type="hidden" id="hiddenUploadTeamImage" name="UploadTeamImage" value="@Model.UploadTeamImage" />
+
+                    <input type="hidden" id="ImagePath" name="Path" value="@Model.Path" />
+                    @* @Html.HiddenFor(model => model.Path, new { id = "hiddenFilePath", value })*@
+
+                    @Html.HiddenFor(model => model.Id)
+
+                    <br />
+
+                    <div class="col-md-12 text-end">
+
+                        <input type="submit" class="btn btn-primary btn-blue mb-3" value="Update" />
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+
+        function displayFileName() {
+
+            var input = document.getElementById('uploadTeamImage');
+
+            var fileName = input.files.length > 0 ? input.files[0].name : '@Model.UploadTeamImage';
+
+            console.log(fileName);
+
+            document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
+
+        }
+
+        // Call displayFileName initially to show the default file name
+
+        displayFileName();
+
+
+        $("#updateTeamForm").submit(function (event) {
+
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $(this)[0];
+
+            var formData = new FormData(form);
+
+            formData.append('EventName', $('[name="EventName"]').val());
+
+            formData.append('Description', $('[name="Description"]').val());
+
+            formData.append('CreatedDate', $('[name="CreatedDate"]').val());
+
+            formData.append('UploadTeamImage', document.getElementById('uploadTeamImage').files[0]);
+
+            formData.append('Id', $('[name="Id"]').val());
+
+            formData.append('Path', $('[name="Path"]').val());
+
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "@Url.Action("UpdateTeam", "Team")",
+
+                data: formData,
+
+                contentType: false,
+
+                processData: false,
+
+                success: function (response) {
+
+                    if (response.success) {
+
+                        alert(response.message);
+
+                        console.log(response.message);
+
+                        window.location.href = "@Url.Action("GetTeam", "Team")";
+
+                        // Optionally, redirect or perform additional actions on success
+
+                    } else {
+
+                        alert("Error: " + response.message);
+
+                    }
+
+                },
+
+                error: function () {
+
+                    alert("An error occurred. Please try again.");
+
+                }
+
+            });
+
+            return false; // Prevent the form from submitting in the traditional way
+
+        });
+
+    </script>
+
+</main>

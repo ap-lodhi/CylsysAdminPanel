@@ -1,0 +1,269 @@
+﻿@{ ViewBag.Title = "Dashboard"; }
+@using AdminCylsys.Models
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<main id="main" class="main">
+    <section class="section">
+        <!--Table code start-->
+        <h5>Dashboard</h5>
+        <div class="row">
+           
+            <hr>
+            <div class="col-md-12" style="overflow-x: scroll;">
+                <table class="table small border" id="postandJob">
+                    <thead>
+                        <tr class="btn-primary btn-blue">
+                            <th scope="col">S.No.</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Experience</th>
+                            <th scope="col">JoiningPeriod</th>
+                            <th scope="col">Mail Id</th>
+                            <th scope="col">No. of Position</th>
+                            <th scope="col">Payroll</th>
+                            <th scope="col">Valid Till</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var counter = 1; }
+                        @foreach (var item in Model as List<PostUser>)
+                        {
+                            if (item.Active)
+                            {
+                                <tr id="row_@item.id">
+                                    <th>@counter</th>
+                                    <td>
+                                        @if (item.Active)
+                                        {
+                                            <a href="#" data-id="@item.id" onclick="loadFormData(@item.id)">
+                                                @item.position
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" data-id="@item.id" style="color:gray;pointer-events:none"
+                                               onclick="loadFormData(@item.id)">
+                                                @item.position
+                                            </a>
+                                        }
+                                    </td>
+
+                                    @*<td><a href="#" data-id="@item.id" onclick="loadFormData(@item.id)">@item.position</a>
+                                        </td>*@
+
+
+                                    <td>@($"{item.city_name}, {item.state_name}, {item.country_name}")</td>
+                                    <td>@item.experience</td>
+                                    <td>@item.joining_period</td>
+                                    <td>@item.mail_Id</td>
+                                    <td>@item.number_of_position</td>
+                                    <td>@item.Payroll</td>
+                                    <td>@item.valid_till.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.phone_number</td>
+                                    <td>@item.budget</td>
+                                    <td>@item.description</td>
+                                    <td align="center">
+                                        @if (item.Active)
+                                        {
+
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="toggleRow(@item.id, this)">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        }
+                                        else
+                                        {
+                                            <label class="switch">
+                                                <input type="checkbox" onchange="toggleRow(@item.id, this)">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        }
+
+
+                                    </td>
+                                    @if (item.Active)
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("DownloadRowPDF", "PostAndJobs" , new { id=item.id })"
+                                               title="Download PDF">
+                                                <i class="fa fa-download"></i>
+                                        </td>
+                                    }
+                                    else
+                                    {
+
+                                        <td>
+                                            <a href="@Url.Action("DownloadRowPDF", "PostAndJobs" , new { id=item.id })"
+                                               title="Download PDF" style="color:gray;pointer-events:none">
+                                                <i class="fa fa-download"></i>
+                                        </td>
+                                    }
+
+
+                                </tr>
+                            }
+                            else
+                            {
+
+                                <tr id="row_@item.id" style="color:gray;">
+                                    <th>@counter</th>
+                                    <td>
+
+                                        @if (item.Active)
+                                        {
+                                            <a href="#" data-id="@item.id" onclick="loadFormData(@item.id)">
+                                                @item.position
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" data-id="@item.id" style="color:gray;pointer-events:none"
+                                               onclick="loadFormData(@item.id)">
+                                                @item.position
+                                            </a>
+                                        }
+
+
+
+                                    </td>
+
+                                    @*<td><a href="#" data-id="@item.id" onclick="loadFormData(@item.id)">@item.position</a>
+                                        </td>*@
+
+
+                                    <td>@($"{item.city_name}, {item.state_name}, {item.country_name}")</td>
+                                    <td>@item.experience</td>
+                                    <td>@item.joining_period</td>
+                                    <td>@item.mail_Id</td>
+                                    <td>@item.number_of_position</td>
+                                    <td>@item.Payroll</td>
+                                    <td>@item.valid_till.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.phone_number</td>
+                                    <td>@item.budget</td>
+                                    <td>@item.description</td>
+                                    <td align="center">
+                                        @if (item.Active)
+                                        {
+
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="toggleRow(@item.id, this)">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        }
+                                        else
+                                        {
+                                            <label class="switch">
+                                                <input type="checkbox" onchange="toggleRow(@item.id, this)">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        }
+
+
+                                    </td>
+                                    @if (item.Active)
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("DownloadRowPDF", "PostAndJobs" , new { id=item.id })"
+                                               title="Download PDF">
+                                                <i class="fa fa-download"></i>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("DownloadRowPDF", "PostAndJobs" , new { id=item.id })"
+                                               title="Download PDF" style="color:gray;pointer-events:none">
+                                                <i class="fa fa-download"></i>
+                                        </td>
+                                    }
+
+                                </tr>
+
+                            }
+                            counter++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Table code end-->
+    </section>
+</main>
+
+
+<script>
+    function toggleRow(id, checkbox) {
+        // Show alert based on the checked status
+        if (checkbox.checked) {
+            alert("Are you sure want to Enable this!!");
+        } else {
+            alert("Are you sure want to Disable this!!");
+        }
+        debugger;
+        $("#dloading").show();
+        $.ajax({
+            url: "/PostAndJobs/DisablePost",
+            type: "POST",
+            data: {
+                id: id,
+                active: checkbox.checked ? true : false  // Convert boolean to 1 or 0
+            },
+            success: function (result) {
+                if (result.status) {
+                    $("#dloading").hide();
+                    // Reload the page after a successful toggle
+                    location.reload();
+
+
+                } else {
+                    console.error(result.Message);
+                }
+            },
+            error: function (err) {
+                // Handle error
+                console.error(err.message);
+            }
+        });
+    }
+</script>
+
+<script>
+    function loadFormData(id) {
+        window.location.href = "/PostAndJobs/GetPostById?id=" + id;
+        $("#dloading").show();
+        $.ajax({
+            url: "/PostAndJobs/GetPostById",
+            type: "GET",
+            data: { id: id },
+            success: function (result) {
+                $("#dloading").hide();
+            },
+            error: function (err) {
+                $("#dloading").hide();
+                console.error(err.message);
+            }
+        });
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('#postandJob').DataTable({
+            searching: true,
+            scrollX: true,
+            aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+            iDisplayLength: 5
+        });
+    })
+
+
+</script>

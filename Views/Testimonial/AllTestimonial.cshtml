@@ -1,0 +1,290 @@
+﻿@using AdminCylsys.Models
+
+@{ ViewBag.Title = "AllTestimonial"; }
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <!--Table code start-->
+
+        <h5>
+
+            Testimonial
+
+        </h5>
+
+        <div class="row">
+
+            <div class="col-md-12 text-end">
+
+                <a href="@Url.Action("AddTestimonial", "Testimonial" )" class="btn btn-primary btn-blue mb-3">
+
+                    <i class="fa fa-plus"></i> Add New Testimonial
+
+                </a>
+
+            </div>
+
+            <hr>
+
+            <div class="col-md-12">
+
+                <table class="table small border" id="testimonial">
+
+                    <thead>
+
+                        <tr class="btn-blue btn-primary">
+
+                            <th scope="col">S.No.</th>
+
+                            <th scope="col">Client Name</th>
+
+                            <th scope="col">Project name</th>
+
+                            <th scope="col">Description</th>
+
+                            <th scope="col">Rating</th>
+
+                            <th scope="col">Client Photo Upload</th>
+
+                            <th scope="col">Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @{ var counter = 1; }
+
+                        @foreach (var item in Model as List<TestimonialModel>)
+
+                        {
+
+                            <tr>
+
+                                <th>@counter</th>
+
+                                <td>@item.client_name</td>
+
+                                @*<td>@item.project_name</td>*@
+
+                                <td>
+
+                                    <a href="#" data-id="@item.id"
+                                       onclick="loadFormData(@item.id)">@item.project_name</a>
+
+                                </td>
+
+                                <td>@item.description</td>
+
+                                @*<td>@item.rating</td>*@
+
+                                <td>
+
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        if (i <= item.rating)
+                                        {<i class="fa fa-star"></i>
+                                        }
+
+                                        else
+
+                                        {
+
+                                            <i class="fa-regular fa-star"></i>
+                                        }
+
+                                    }
+
+                                </td>
+
+                                <td><img src="~/Uploads/@Url.Content(item.testimonial_Image)" width="130px" /></td>
+
+                                <td>
+
+                                    <button class="btn btn-primary btn-blue mb-3 btn-sm" onclick="deleteTestimonial(@item.id)">
+
+                                        Delete
+
+                                    </button>
+
+                                    @*<label class="switch">
+
+                                            <input type="checkbox" class="delete-checkbox"
+                                                onchange="deleteTestimonial(this, @item.id)">
+
+                                            <span class="slider round"></span>
+
+                                        </label>*@
+
+                                </td>
+
+                            </tr>
+                            counter++;
+
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!--Table code end-->
+
+    </section>
+
+</main>
+
+<script>
+
+    function loadFormData(id) {
+
+        window.location.href = "/Testimonial/GetTestimonialById?id=" + id;
+
+        debugger;
+
+        $.ajax({
+
+            url: "/Testimonial/GetTestimonialById",
+
+            type: "GET",
+
+            data: { id: id },
+
+            success: function (result) {
+
+                console.log(result);
+
+            },
+
+            error: function (err) {
+
+                console.error(err.message);
+
+            }
+
+        });
+
+    }</script>
+
+<script>
+
+    function deleteTestimonial(testimonialId) {
+
+        if (confirm("Are you sure you want to delete this testimonial?") == true) {
+
+            $.ajax({
+
+                url: "/Testimonial/DeleteTestimonial",
+
+                type: 'POST',
+
+                data: { testimonialId: testimonialId },
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    alert(JSON.stringify(data.Message));
+
+                    console.log(data.Message);
+
+                    location.reload();
+
+                },
+
+                error: function (error) {
+
+                    console.error('Error during AJAX request:', error);
+
+                    alert('An error occurred during the deletion process.');
+
+                }
+
+            });
+
+        }
+
+    }
+
+</script>
+
+@*
+    <script>
+
+        function deleteTestimonial(checkbox, testimonialId) {
+
+            if (checkbox.checked && confirm("Are you sure you want to delete this testimonial?") == true) {
+
+                $.ajax({
+
+                    url: "/Testimonial/DeleteTestimonial",
+
+                    type: 'POST',
+
+                    data: { testimonialId: testimonialId },
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                        alert(JSON.stringify(data.Message));
+
+                        console.log(data.Message);
+
+                        location.reload();
+
+                    },
+
+                    error: function (error) {
+
+                        console.error('Error during AJAX request:', error);
+
+                        alert('An error occurred during the deletion process.');
+
+                    }
+
+                });
+
+            } else {
+
+                checkbox.checked = false;
+
+                // If the checkbox is unchecked, you may want to add logic here.
+
+            }
+
+        }</script>*@
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#testimonial').DataTable({
+
+            searching: true,
+
+            scrollX: false,
+
+            aLengthMenu: [
+
+                [5, 10, 50, 100, -1],
+
+                [5, 10, 50, 100, "All"]
+
+            ],
+
+            iDisplayLength: 5
+
+        });
+
+    })
+
+
+</script>

@@ -1,0 +1,199 @@
+﻿[4:16 PM] Vivek Kumar Swami
+@model AdminCylsys.Models.AnnouncementModel
+
+@{
+
+    ViewBag.Title = "EditAnnouncement";
+
+}
+
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        <h5>Update Announcement</h5>
+
+        <hr>
+
+        <!---Form code start-->
+
+        <div class="row mt-4">
+
+            @using (Html.BeginForm("UpdateAnnouncement", "Announcement", FormMethod.Post, new
+
+            {
+
+                enctype = "multipart/form-data",
+
+                id = "updateAnnouncementForm"
+
+            }))
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" class="form-input" placeholder=" " name="id" value="@Model.id" required />
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="text" class="form-input" placeholder=" " name="announcement_Name"
+                           value="@Model.announcement_Name" required />
+
+                    <label for="" class="form-label" id="l1">Announcement Name  <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="date" class="form-input" placeholder=" " name="start_Date"
+                           value="@Model.start_Date.ToString("yyyy-MM-dd")" required />
+
+                    <label for="" class="form-label" id="l1">Start Date  <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <input type="date" class="form-input" placeholder=" " name="end_Date" value="@Model.end_Date.ToString("yyyy-MM-dd")" required />
+
+                    <label for="" class="form-label" id="l1">End Date  <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+
+                    <textarea class="form-input" rows="4" placeholder=" " name="description"
+                              required>@Model.description </textarea>
+
+                    <label for="" class="form-label" id="l1">Description  <span class="text-danger">*</span></label>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+
+                    <label>Upload Image  <span class="text-danger">*</span></label>
+
+                    <input class="form-control" type="file" id="announcement_image" name="announcement_Image"
+                           onchange="displayFileName()" value="@Model.announcement_image" />
+
+                    <p id="selectedFileName">@Model.announcement_image</p>
+
+                </div>
+
+
+                <input type="hidden" id="hiddenUploadTeamImage" name="announcement_Image"
+                       value="@Model.announcement_image" />
+
+                <input type="hidden" id="image_path" name="image_path" value="@Model.image_path" />
+
+
+                @Html.HiddenFor(model => model.id)
+
+                <br />
+
+                <div class="col-md-12 mb-3 text-end">
+
+                    <input type="submit" class="btn btn-primary btn-blue mb-3" value="Update" />
+
+                </div>}
+
+            </div>
+
+            <!--Form code end-->
+
+        </section>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script>
+
+        function displayFileName() {
+
+            var input = document.getElementById('announcement_image');
+
+            var fileName = input.files.length > 0 ? input.files[0].name : '@Model.announcement_image';
+
+            console.log(fileName);
+
+            document.getElementById('selectedFileName').innerText = 'Selected File: ' + fileName;
+
+        }
+
+        // Call displayFileName initially to show the default file name
+
+        displayFileName();
+
+
+        $("#updateAnnouncementForm").submit(function (event) {
+
+            event.preventDefault(); // Prevent the default form submission
+
+            var form = $(this)[0];
+
+            var formData = new FormData(form);
+
+            formData.append('announcement_Name', $('[name="announcement_Name"]').val());
+
+            formData.append('start_Date', $('[name="start_Date"]').val());
+
+            formData.append('end_Date', $('[name="end_Date"]').val());
+
+            formData.append('description', $('[name="description"]').val());
+
+            formData.append('announcement_image', document.getElementById('announcement_image').files[0]);
+
+            formData.append('id', $('[name="id"]').val());
+
+            formData.append('image_path', $('[name="image_path"]').val());
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "@Url.Action("UpdateAnnouncement", "Announcement")",
+
+                data: formData,
+
+                contentType: false,
+
+                processData: false,
+
+                success: function (response) {
+
+                    if (response.success) {
+
+                        alert(response.message);
+
+                        console.log(response.message);
+
+                        window.location.href = "@Url.Action("AllAnnouncement", "Announcement")";
+
+                        // Optionally, redirect or perform additional actions on success
+
+                    } else {
+
+                        alert("Error: " + response.message);
+
+                    }
+
+                },
+
+                error: function () {
+
+                    alert("An error occurred. Please try again.");
+
+                }
+
+            });
+
+            return false; // Prevent the form from submitting in the traditional way
+
+        });
+
+        </script>
+
+
+    </main>

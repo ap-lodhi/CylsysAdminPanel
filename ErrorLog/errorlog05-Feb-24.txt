@@ -1,0 +1,32 @@
+DD-02-2024 17-20-38	The error while Login is:MySqlConnector.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+   at MySqlConnector.Core.ServerSession.<OpenTcpSocketAsync>d__111.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 1108
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at MySqlConnector.Core.ServerSession.<ConnectAsync>d__98.MoveNext() in /_/src/MySqlConnector/Core/ServerSession.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.Core.ConnectionPool.<ConnectSessionAsync>d__25.MoveNext() in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 428
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at MySqlConnector.Core.ConnectionPool.<ConnectSessionAsync>d__25.MoveNext() in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 433
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.Core.ConnectionPool.<GetSessionAsync>d__13.MoveNext() in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 113
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at MySqlConnector.Core.ConnectionPool.<GetSessionAsync>d__13.MoveNext() in /_/src/MySqlConnector/Core/ConnectionPool.cs:line 146
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlConnection.<CreateSessionAsync>d__131.MoveNext() in /_/src/MySqlConnector/MySqlConnection.cs:line 919
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlConnection.<OpenAsync>d__28.MoveNext() in /_/src/MySqlConnector/MySqlConnection.cs:line 434
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MySqlConnector.MySqlConnection.Open() in /_/src/MySqlConnector/MySqlConnection.cs:line 381
+   at AdminCylsys.DAL.RegUser.loginUser(Register objmodel) in C:\Users\win10\Desktop\AdminCylsys\DAL\RegUser.cs:line 20

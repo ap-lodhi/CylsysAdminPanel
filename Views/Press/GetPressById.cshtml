@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "GetPressById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model AdminCylsys.Models.PressModel
+
+<style>
+    label {
+        font-weight: bold;
+        margin-top: 12px;
+    }
+</style>
+
+<main id="main" class="main">
+
+    <section class="section">
+
+        @using (Html.BeginForm("UpdatePress", "Press", FormMethod.Post, new { enctype = "multipart/form-data", id = "updatePressForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <h4>Edit Press Details</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                <label>Heading <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Heading, new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            id = "Heading"
+                        }
+                    })
+                    @Html.ValidationMessageFor(model => model.Heading, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Url <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Url, new
+                    {
+                        htmlAttributes = new
+                        {
+                            @class = "form-control",
+                            id = "Url"
+                        }
+                    })
+                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Logo  <span class="text-danger">*</span></label>
+                <div class="col-md-10">
+                    <input class="form-control" type="file" id="formFile" name="FileName" onchange="displayFileName()" />
+                    <p id="selectedFileName">@Model.FileName</p>
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.FileName)
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <br />
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+            </div>
+        }
+    </section>
+</main>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#updatePressForm').submit(function (event) {
+
+                $('.text-danger').text('');
+
+                var isValid = true;
+
+                var heading = $('#Heading').val();
+                if (!heading.trim()) {
+                    $('#Heading').addClass('is-invalid');
+                    $('<span class="error-message text-danger">Heading is required</span>').insertAfter('#Heading');
+                    isValid = false;
+                } else {
+                    $('#Heading').removeClass('is-invalid');
+                }
+
+                var urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+                var url = $('#Url').val();
+                if (!url.trim()) {
+                    $('#Url').addClass('is-invalid');
+                    $('<span class="error-message text-danger">Url is required</span>').insertAfter('#Url');
+                    isValid = false;
+                } else if (!urlRegex.test(url)) {
+                    $('#Url').addClass('is-invalid');
+                    $('<span class="error-message text-danger">Invalid URL</span>').insertAfter('#Url');
+                    isValid = false;
+                } else {
+                    $('#Url').removeClass('is-invalid');
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+
+        function displayFileName() {
+            var input = document.getElementById('formFile');
+            var fileName = input.files.length > 0 ? input.files[0].name : '@Model.FileName';
+            console.log(fileName);
+            document.getElementById('selectedFileName').innerText = "Selected File: " + (fileName || 'No file selected');
+        }
+
+    $("#updatePressForm").submit(function (event) {
+
+        event.preventDefault();
+
+        var form = $(this)[0];
+
+        var formData = new FormData(form);
+
+        formData.append('Heading', $('[name="Heading"]').val());
+
+        formData.append('Url', $('[name="Url"]').val());
+
+        formData.append('FileName', $('[name="FileName"]').val());
+
+
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "@Url.Action("UpdatePress", "Press")",
+
+            data: formData,
+
+            contentType: false,
+
+            processData: false,
+
+            success: function (response) {
+
+                if (response.success) {
+
+                    alert(response.message);
+
+                    console.log(response.message);
+
+                    window.location.href = "@Url.Action("GetAllPress", "Press")";
+
+                    // Optionally, redirect or perform additional actions on success
+
+                } else {
+
+                    alert("Error: " + response.message);
+
+                }
+
+            },
+
+            error: function () {
+
+                alert("An error occurred. Please try again.");
+
+            }
+
+        });
+
+        return false; // Prevent the form from submitting in the traditional way
+
+    });
+
+
+    </script>
+
+}

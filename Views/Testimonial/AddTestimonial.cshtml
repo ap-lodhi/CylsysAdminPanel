@@ -1,0 +1,257 @@
+﻿@{
+    ViewBag.Title = "AddTestimonial";
+}
+
+<style>
+
+    /*---------star style----------*/
+
+    .star {
+        font-size: 5vh;
+        cursor: pointer;
+    }
+
+    .one {
+        color: #ff9900;
+    }
+
+    .two {
+        color: #ff9900;
+    }
+
+    .three {
+        color: #ff9900;
+    }
+
+    .four {
+        color: #ff9900;
+    }
+
+    .five {
+        color: rgb(24, 159, 14);
+    }
+</style>
+<main id="main" class="main">
+    <section class="section">
+        <!---Form code start-->
+
+
+        <h5>Add Testimonial</h5>
+        <hr>
+
+        @if (TempData["SuccessMessage"] != null)
+
+        {
+
+            <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["SuccessMessage"]");
+
+                        window.location.href = '@Url.Action("AllTestimonial", "Testimonial")';
+
+                });
+
+            </script>
+        }
+
+        <!-- Check for error message -->
+
+        @if (TempData["ErrorMessage"] != null)
+
+        {
+
+            <script>
+
+                $(document).ready(function () {
+
+                    alert("@TempData["ErrorMessage"]");
+
+                });
+
+            </script>
+        }
+        <div class="row mt-4">
+            @using (Html.BeginForm("AddTestimonial", "Testimonial", FormMethod.Post, new
+            {
+                enctype =
+            "multipart/form-data"
+            }))
+            {
+
+                <div class="col-md-12 mb-3 form-outline">
+                    @Html.DropDownList("client_name", ViewBag.cli as SelectList, "Select", new
+                    {
+                    @class = "form-select",
+                    id = "client_name",
+                    name = "client_name",
+
+                    })
+
+                    <label for="" class="lablenew">Client Name  <span class="text-danger">*</span></label>
+                    <span id="clientNameError"></span>
+                </div>
+
+                <div class="col-md-12 mb-3 form-outline">
+                    <input type="text" class="form-input" placeholder=" " id="project_name" name="project_name" required>
+                    <label for="" class="form-label" id="l1">Project name <span class="text-danger">*</span></label>
+                </div>
+                @*<div class="col-md-12 mb-3 form-outline">
+                        <select class="form-select" name="rating" id="rating" required>
+                            <option disabled>Select</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <label class="lablenew">Rating</label>
+                    </div>*@
+
+                <div class="col-md-12 mb-3 form-outline">
+                    <span onclick="gfg(1)" class="star one">
+                        ★
+                    </span>
+                    <span onclick="gfg(2)" class="star">
+                        ★
+                    </span>
+                    <span onclick="gfg(3)" class="star">
+                        ★
+                    </span>
+                    <span onclick="gfg(4)" class="star">
+                        ★
+                    </span>
+                    <span onclick="gfg(5)" class="star">
+                        ★
+                    </span>
+                    @*<label class="lablenew">Rating</label>*@
+                    <p id="output">
+                        Rating is: 1/5
+                    </p>
+                </div>
+
+                <div class="d-none">
+
+                    <input type="text" id="ratingInput" name="rating" readonly />
+
+                </div>
+                <div class="col-md-12 mb-4">
+                    <label>Upload Image <span class="text-danger">*</span></label>
+                    <input class="form-control" type="file" id="formFile" name="testimonial_Image" required />
+                    @*<label for="formFile" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="formFile">*@
+                </div>
+                <div class="col-md-12 mb-3 form-outline">
+                    <textarea class="form-input" placeholder=" " name="description" id="description" required></textarea>
+                    <label for="" class="form-label" id="l1">Description <span class="text-danger">*</span></label>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12 text-end">
+                        <input type="submit" id="save" class="btn btn-primary btn-blue mb-3" value="Save">
+                    </div>
+                </div>}
+        </div>
+        <!--Form code end-->
+    </section>
+</main>
+<script>
+    $(document).ready(function () {
+        $('#save').on('click', function () {
+            var selectedClient = $('#client_name').val();
+            if (!selectedClient || selectedClient === "Select") {
+                $('#clientNameError').html('Please select a client name').css('color', 'red');
+                return false; // Prevent form submission
+            } else {
+                $('#clientNameError').html(''); // Clear error message if client name is selected
+            }
+        });
+    });
+</script>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.star').on('click', function () {
+
+            var value = $(this).data('value');
+
+            $('#rating').val(value);
+
+            // Highlight the selected stars
+
+            $('.star').removeClass('selected');
+
+            $(this).addClass('selected');
+
+        });
+
+    });
+
+</script>
+
+<script>
+
+    let stars =
+
+        document.getElementsByClassName("star");
+
+    let output =
+
+        document.getElementById("output");
+
+    let ratingInput = document.getElementById("ratingInput");
+
+    // Funtion to update rating
+
+    function gfg(n) {
+
+        remove();
+
+        for (let i = 0; i < n; i++) {
+
+            if (n == 1) cls = "one";
+
+            else if (n == 2) cls = "two";
+
+            else if (n == 3) cls = "three";
+
+            else if (n == 4) cls = "four";
+
+            else if (n == 5) cls = "five";
+
+            stars[i].className = "star " + cls;
+
+        }
+
+        const rating = n + "/5";
+
+        output.innerText = "Rating is: " + rating;
+
+        // Set the rating value to the input box
+
+        ratingInput.value = n;
+
+    }
+
+    // To remove the pre-applied styling
+
+    function remove() {
+
+        let i = 0;
+
+        while (i < 5) {
+
+            stars[i].className = "star";
+
+            i++;
+
+        }
+
+    }
+
+</script>
+

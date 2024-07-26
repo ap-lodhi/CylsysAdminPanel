@@ -1,0 +1,150 @@
+﻿@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+@using AdminCylsys.Models
+
+<main id="main" class="main">
+    <section class="section">
+        <!--Table code start-->
+        <div class="row">
+            <h5>Become Our Partner </h5>
+            <div class="col-md-12 text-end">
+                <a href="@Url.Action("AddPartner", "partner" )" class="btn btn-primary btn-blue mb-3">
+                    <i class="fa fa-plus"></i> Add Partner
+                </a>
+            </div>
+            <hr>
+            <div class="col-md-12" style="overflow-x: scroll;">
+                <table class="table small border" id="partner">
+                    <thead>
+                        <tr class="btn-primary btn-blue">
+                            <th scope="col">S.No.</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Organization Name</th>
+                            <th scope="col">Organization Type </th>
+                            <th scope="col">Expectations </th>
+                            <th scope="col">Action </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var counter = 1; }
+                        @foreach (var item in Model as List<PartnerModel>)
+                        {
+
+                            if (item.Active)
+                            {
+                                <tr id="row_@item.id">
+                                    <th>@counter</th>
+                                    <td>@item.First_name</td>
+
+                                    <td>@item.Last_name</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Organization_name</td>
+                                    <td>@item.Organization_type</td>
+                                    <td>@item.Expectations</td>
+                                    <td align="center">
+
+                                        <label class="switch">
+                                            <input type="checkbox" checked onchange="toggleRow(@item.id, this)">
+                                            <span class="slider round"></span>
+                                        </label>
+
+                                    </td>
+
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr id="row_@item.id" style="color:gray;">
+                                    <th>@counter</th>
+                                    <td>@item.First_name</td>
+
+                                    <td>@item.Last_name</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Organization_name</td>
+                                    <td>@item.Organization_type</td>
+                                    <td>@item.Expectations</td>
+                                    <td align="center">
+                                        <label class="switch">
+                                            <input type="checkbox" onchange="toggleRow(@item.id, this)">
+                                            <span class="slider round"></span>
+                                        </label>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                            counter++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Table code end-->
+    </section>
+
+</main>
+
+<script>
+    function toggleRow(id, checkbox) {
+        // Show alert based on the checked status
+        if (checkbox.checked) {
+            alert("Are you sure want to Enable this!!");
+        } else {
+            alert("Are you sure want to Disable this!!");
+        }
+        debugger;
+        $("#dloading").show();
+        $.ajax({
+            url: "/Partner/DisablePartner",
+            type: "POST",
+            data: {
+                id: id,
+                active: checkbox.checked ? true : false  // Convert boolean to 1 or 0
+            },
+            success: function (result) {
+                if (result.status) {
+                    $("#dloading").hide();
+                    // Reload the page after a successful toggle
+                    location.reload();
+
+
+                } else {
+                    console.error(result.Message);
+                }
+            },
+            error: function (err) {
+                // Handle error
+                console.error(err.message);
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#partner').DataTable({
+
+            searching: true,
+
+            scrollX: false,
+
+            aLengthMenu: [
+
+                [5, 10, 50, 100, -1],
+
+                [5, 10, 50, 100, "All"]
+
+            ],
+
+            iDisplayLength: 5
+
+        });
+
+    })</script>

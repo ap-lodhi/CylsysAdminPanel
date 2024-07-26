@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "AllCertificates";
+}
+
+@using AdminCylsys.Models
+
+<main id="main" class="main">
+    <section class="section">
+        <!--Table code start-->
+        <h5>Certificates</h5>
+        <div class="row mt-4">
+            <div class="col-md-12 text-end">
+                <a href="@Url.Action("AddCertificates", "Certificates" )" class="btn btn-primary btn-blue mb-3">
+                    <i class="fa fa-plus"></i> Add New Certificate
+                </a>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <table class="table small border"id="certificate">
+                    <thead>
+                        <tr class="btn-blue btn-primary">
+                            <th scope="col">S.No.</th>
+                            <th width="40%" scope="col">Title</th>
+                            <th width="20%" scope="col">Link</th>
+                            <th width="15%" scope="col">Description</th>
+                            <th width="20%" scope="col">Certificates Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var counter = 1; }
+                        @foreach (var item in Model as List<certificateModel>)
+                        {
+                    <tr>
+                        <th>@counter</th>
+                        <td>
+                            <a href="#" onclick="editCertificate(@item.id)"> @item.title</a>
+                        </td>
+                        <td>
+                            <a href="#">@item.link</a>
+                        </td>
+                        <td> @item.description</td>
+                        <td>
+                            <img src="~/Uploads/@item.upload_certificate" width="60%;" />
+                            @* <img src="images/iso.jpg" width="60%;">*@
+                        </td>
+                    </tr>
+                            counter++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Table code end-->
+    </section>
+</main>
+
+<script>
+    function editCertificate(id)
+    {
+        window.location.href = "/Certificates/EditCertificate?id=" + id;
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('#certificate').DataTable({
+            searching: true,
+            scrollX: false,
+            aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+            iDisplayLength: 5
+        });
+    })
+
+
+</script>
